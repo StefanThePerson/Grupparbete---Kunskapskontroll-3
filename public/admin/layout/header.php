@@ -35,7 +35,7 @@
     <!-- Main navigation menu -->
     <nav class="navmenu">
       <a id="home-link"     href="index.php">Home</a>
-      <!-- <a id="createblog-link"   href="create_blog.php">Create Blog</a> -->
+      <a id="create_products-link"   href="create_products.php">Create Products</a>
       <!-- <a id="editblog-link"   href="edit_blog.php">Manage Blog</a> -->
       <!-- <a id="postform-link"   href="postform.php">Post form test</a> -->
     </nav>
