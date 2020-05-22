@@ -5,59 +5,88 @@
   $pageId = '';
 
 
-  // echo "<pre>";
-  // print_r($_GET);
-  // echo "</pre>";
 
-  // echo "<pre>";
-  // print_r($_POST);
-  // echo "</pre>";
-
-  $username = '';
+  $fname = '';
+  $lname = '';
   $email = '';
-  $error = '';
+  $phonenr = '';
+  $street = '';
+  $postalcode = '';
+  $city = '';
+  $country = '';
   $errorMsg = '';
   
   if (isset($_POST['register'])) {
-    $username = trim($_POST['username']);
+    $fname = trim($_POST['fname']);
+    $lname = trim($_POST['lname']);
     $email = trim($_POST['email']);
+    $phonenr = trim($_POST['phonenr']);
+    $street = trim($_POST['street']);
+    $postalcode = trim($_POST['postalcode']);
+    $city = trim($_POST['city']);
+    $country = trim($_POST['country']);
     $password = trim($_POST['password']);
     $password2 = trim($_POST['password2']);
 
-    if (empty($username)) {
-      $error .= "*You must choose an Username</br>";
+    if (empty($fname)) {
+      $errorMsg .= "*You must have a Firstname</br>";
+    }
+    if (empty($lname)) {
+      $errorMsg .= "*You must have a Lastname</br>";
     }
     if (empty($email)) {
-      $error .= "*You must choose an Email</br>";
+      $errorMsg .= "*You must have an Email</br>";
+    }
+    if (empty($phonenr)) {
+      $errorMsg .= "*You must have a Phone Number</br>";
+    }
+    if (empty($street)) {
+      $errorMsg .= "*You must have a Street</br>";
+    }
+    if (empty($postalcode)) {
+      $errorMsg .= "*You must have a Postal Code</br>";
+    }
+    if (empty($city)) {
+      $errorMsg .= "*You must have a City</br>";
+    }
+    if (empty($country)) {
+      $errorMsg .= "*You must have a Country</br>";
     }
     // if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    //   $error .= "*Incorrect Email";
+    //   $errorMsg .= "*Incorrect Email";
     // }
 
     if (empty($password)) {
-      $error .= "*You must choose a password</br>";
+      $errorMsg .= "*You must choose a Password</br>";
     }
     if (!empty($password) && strlen($password) < 6) {
-      $error .= "*Password must be more than 6 characters</br>";
+      $errorMsg .= "*Password must be more than 6 characters</br>";
     }
     if ($password2 !== $password) {
-      $error .= "*Confirmed password does not match";
+      $errorMsg .= "*Confirmed password does not match";
     }
 
-    if (!empty($error)) {
-      $errorMsg = "<ul class='error_msg'>{$error}</ul>";
+    if (!empty($errorMsg)) {
+      $errorMsg = "<ul class='error_msg'>{$errorMsg}</ul>";
     }
 
-    if (empty($error)) {
+    if (empty($errorMsg)) {
       try {
       $query = "
-        INSERT INTO users (username, password, email)
-        VALUES (:username, :password, :email);
+        INSERT INTO users (first_name, last_name, email, 
+        password, phone, street, postal_code, city, country)
+        VALUES (:fname, :lname, :email, :password, :phonenr, :street, :postalcode, :city, :country);
       ";
       $stmt = $dbconnect->prepare($query); 
-      $stmt->bindValue(":username", $username);
-      $stmt->bindValue(":password", password_hash($password, PASSWORD_BCRYPT));
+      $stmt->bindValue(":fname", $fname);
+      $stmt->bindValue(":lname", $lname);
       $stmt->bindValue(":email", $email);
+      $stmt->bindValue(":phonenr", $phonenr);
+      $stmt->bindValue(":street", $street);
+      $stmt->bindValue(":postalcode", $postalcode);
+      $stmt->bindValue(":city", $city);
+      $stmt->bindValue(":country", $country);
+      $stmt->bindValue(":password", password_hash($password, PASSWORD_BCRYPT));
       $result = $stmt->execute();
 
       } catch (\PDOException $e) {
@@ -83,13 +112,43 @@
                     <?= $errorMsg ?>
 
                     <p>                        
-                        <label for="input1">Username:</label><br>
-                        <input type="text" class="text" name="username" value="<?=$username?>">
+                        <label for="input1">First Name:</label><br>
+                        <input type="text" class="text" name="fname" value="<?=$fname?>">
+                    </p>
+
+                    <p>                        
+                        <label for="input1">Last Name:</label><br>
+                        <input type="text" class="text" name="lname" value="<?=$lname?>">
                     </p>
 
                     <p>                        
                         <label for="input1">Email:</label><br>
                         <input type="email" class="text" name="email" value="<?=$email?>">
+                    </p>
+
+                    <p>                        
+                        <label for="input1">Phone Number:</label><br>
+                        <input type="tel" class="text" name="phonenr" value="<?=$phonenr?>">
+                    </p>
+
+                    <p>                        
+                        <label for="input1">Street:</label><br>
+                        <input type="text" class="text" name="street" value="<?=$street?>">
+                    </p>
+
+                    <p>                        
+                        <label for="input1">Postal Code:</label><br>
+                        <input type="text" class="text" name="postalcode" value="<?=$postalcode?>">
+                    </p>
+
+                    <p>                        
+                        <label for="input1">City:</label><br>
+                        <input type="text" class="text" name="city" value="<?=$city?>">
+                    </p>
+
+                    <p>                        
+                        <label for="input1">Country:</label><br>
+                        <input type="text" class="text" name="country" value="<?=$country?>">
                     </p>
                     
                     <p>
