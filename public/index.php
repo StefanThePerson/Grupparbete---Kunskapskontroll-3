@@ -1,9 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Shop</title>
-</head>
-<body>
-	<h1>Shop page</h1>
-</body>
-</html>
+<?php
+require('../src/config.php');
+require(SRC_PATH . 'dbconnect.php');
+$pageTitle = 'Home';
+$pageId = 'home';
+
+// checkSuccessLogin();
+// $posts = fetchAllPosts();
+
+?>
+<?php include('layout/header.php'); ?>
+<!-- Sidans/Dokumentets huvudsakliga innehåll -->
+<div id="content">
+	<!-- <?= $errorMsg ?> -->
+	<article class="border">
+		<h1>All Product Page</h1>
+	</article>
+</div>
+
+<?php include('layout/footer.php'); ?>
