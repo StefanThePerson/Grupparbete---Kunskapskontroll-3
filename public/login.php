@@ -8,7 +8,7 @@
   $errorMsg = '';
 
   if (isset($_GET['mustLogin'])) {
-    $errorMsg = '<div class="error_msg">Error! You must login.</div>';    
+    $errorMsg = '<div class="error_msg">Error! You must login.</div>'; 
   }
 
   if (isset($_GET['logout'])) {
@@ -36,7 +36,7 @@
 
 
     if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['username'] = $user['username'];
+        $_SESSION['first_name'] = $user['first_name'];
         redirect('index.php?successLogin');
     } else {
         $errorMsg = '<div class="error_msg">Wrong Email or Password</div>';

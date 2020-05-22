@@ -9,3 +9,4 @@ define('ROOT_PATH', '..' . __DIR__ . '/'); // path to 'my-page-3/'
 define('SRC_PATH',  __DIR__ . '/'); // path to 'my-page-3/src/'
 
 // Include functions and classes
+require_once(SRC_PATH . 'app/functions.php');

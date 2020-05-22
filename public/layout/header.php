@@ -16,8 +16,8 @@
   <header id="above">
     <nav class="login">
       <?php 
-        if (isset($_SESSION['username'])) {
-          $displayUsername = ucfirst($_SESSION['username']);
+        if (isset($_SESSION['first_name'])) {
+          $displayUsername = ucfirst($_SESSION['first_name']);
           $aboveNav = "Welcome $displayUsername | <a href='logout.php'>Log Out</a>";
         } else {
           $aboveNav = "<a href='register.php'>Register</a> | <a href='login.php'>Log In</a>";

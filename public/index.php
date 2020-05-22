@@ -4,14 +4,14 @@ require(SRC_PATH . 'dbconnect.php');
 $pageTitle = 'Home';
 $pageId = 'home';
 
-// checkSuccessLogin();
+checkSuccessLogin();
 // $posts = fetchAllPosts();
 
 ?>
 <?php include('layout/header.php'); ?>
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
 <div id="content">
-	<!-- <?= $errorMsg ?> -->
+	<?= $errorMsg ?>
 	<article class="border">
 		<h1>All Product Page</h1>
 	</article>

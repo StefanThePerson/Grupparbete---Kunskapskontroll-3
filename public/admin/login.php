@@ -36,7 +36,7 @@
 
 
     if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['username'] = $user['username'];
+        $_SESSION['first_name'] = $user['first_name'];
         redirect('index.php?successLogin');
     } else {
         $errorMsg = '<div class="error_msg">Wrong Email or Password</div>';
