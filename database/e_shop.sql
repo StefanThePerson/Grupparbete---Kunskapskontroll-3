@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: localhost
--- Tid vid skapande: 22 maj 2020 kl 07:28
+-- Tid vid skapande: 22 maj 2020 kl 08:17
 -- Serverversion: 8.0.18
 -- PHP-version: 7.3.11
 
@@ -30,11 +30,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `products` (
   `id` int(9) NOT NULL,
-  `title` varchar(90) COLLATE utf8_bin NOT NULL,
-  `description` text COLLATE utf8_bin NOT NULL,
+  `title` varchar(90) COLLATE utf8mb4_bin NOT NULL,
+  `description` text COLLATE utf8mb4_bin NOT NULL,
   `price` int(9) NOT NULL,
-  `img_url` varchar(255) COLLATE utf8_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `img_url` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -44,17 +44,17 @@ CREATE TABLE `products` (
 
 CREATE TABLE `users` (
   `id` int(9) NOT NULL,
-  `first_name` varchar(60) COLLATE utf8_bin NOT NULL,
-  `last_name` varchar(60) COLLATE utf8_bin NOT NULL,
-  `email` varchar(150) COLLATE utf8_bin NOT NULL,
-  `password` varchar(60) COLLATE utf8_bin NOT NULL,
-  `phone` varchar(60) COLLATE utf8_bin NOT NULL,
-  `street` varchar(255) COLLATE utf8_bin NOT NULL,
-  `postal_code` varchar(255) COLLATE utf8_bin NOT NULL,
-  `city` varchar(90) COLLATE utf8_bin NOT NULL,
-  `country` varchar(90) COLLATE utf8_bin NOT NULL,
+  `first_name` varchar(60) COLLATE utf8mb4_bin NOT NULL,
+  `last_name` varchar(60) COLLATE utf8mb4_bin NOT NULL,
+  `email` varchar(150) COLLATE utf8mb4_bin NOT NULL,
+  `password` varchar(60) COLLATE utf8mb4_bin NOT NULL,
+  `phone` varchar(60) COLLATE utf8mb4_bin NOT NULL,
+  `street` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `postal_code` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `city` varchar(90) COLLATE utf8mb4_bin NOT NULL,
+  `country` varchar(90) COLLATE utf8mb4_bin NOT NULL,
   `register_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Index för dumpade tabeller
