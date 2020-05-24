@@ -16,7 +16,11 @@ echo "<pre>";
 print_r($_POST);
 echo "</pre>";
 //**********
-// Kolalr om Post knappen har aktiverats
+// Kollar om Delete kanppen har aktiverats
+if (isset($_POST['deleteUserBtn'])) {
+    deleteUserById($_POST['id']);
+}
+// Kollar om Post knappen har aktiverats
 if (isset($_POST['addNewUser'])) {
 	$first_name = trim($_POST['first_name']);
 	$last_name = trim($_POST['last_name']);
@@ -73,49 +77,54 @@ try {
 </div>
 
 <?php include('layout/footer.php'); ?>
-	<table id="users_table">
-		<thead>
-			<tr>
-				<th>firstname</th>
-				<th>lastname</th>
-				<th>email</th>
-				<th>password</th>
-				<th>phone</th>
-				<th>street</th>
-				<th>postal code</th>
-				<th>city</th>
-				<th>country</th>
-				<th>register date</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php foreach ($users as $key => $user) { ?>
-				<tr>
-					<td><?=htmlentities($user['first_name'])?></td>
-					<td><?=htmlentities($user['last_name'])?></td>
-					<td><?=htmlentities($user['email'])?></td>
-					<td><?=htmlentities($user['password'])?></td>
-					<td><?=htmlentities($user['phone'])?></td>
-					<td><?=htmlentities($user['street'])?></td>
-					<td><?=htmlentities($user['postal_code'])?></td>
-					<td><?=htmlentities($user['city'])?></td>
-					<td><?=htmlentities($user['country'])?></td>
-					<td><?=htmlentities($user['register_date'])?></td>
-					<td>
-						<form action="modal" method="GET">
-							<input type="submit" name="editUserBtn" value="Edit">
-						</form>
-					</td>
-					<td>
-						<form action="" method="POST">
-							<input type="hidden" name="postId" value="<?=$post['id']?>">
-							<input type="submit" name="deleteUserBtn" value="Delete">
-						</form>
-					</td>
-				</tr>
-			<?php } ?>
-		</tbody>
-	</table>
+	<div class="content">
+		<article class="border">
+			<table id="users_table">
+				<thead>
+					<tr>
+						<th>firstname</th>
+						<th>lastname</th>
+						<th>email</th>
+						<th>password</th>
+						<th>phone</th>
+						<th>street</th>
+						<th>postal code</th>
+						<th>city</th>
+						<th>country</th>
+						<th>register date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($users as $key => $user) { ?>
+						<tr>
+							<td><?=htmlentities($user['first_name'])?></td>
+							<td><?=htmlentities($user['last_name'])?></td>
+							<td><?=htmlentities($user['email'])?></td>
+							<td class="passwordWidth"><?=htmlentities($user['password'])?></td>
+							<td><?=htmlentities($user['phone'])?></td>
+							<td><?=htmlentities($user['street'])?></td>
+							<td><?=htmlentities($user['postal_code'])?></td>
+							<td><?=htmlentities($user['city'])?></td>
+							<td><?=htmlentities($user['country'])?></td>
+							<td><?=htmlentities($user['register_date'])?></td>
+							<td>
+								<form action="edit_user.php" method="GET">
+									<input type="hidden" name="id" value="<?=$user['id']?>">
+									<input type="submit" value="Edit">
+								</form>
+							</td>
+							<td>
+								<form action="" method="POST">
+									<input type="hidden" name="id" value="<?=$user['id']?>">
+									<input type="submit" name="deleteUserBtn" value="Delete">
+								</form>
+							</td>
+						</tr>
+					<?php } ?>
+				</tbody>
+			</table>
+		</article>
+	</div>
 	<form action="" method="POST">
 		<p>
 			<label>First name:</label>
