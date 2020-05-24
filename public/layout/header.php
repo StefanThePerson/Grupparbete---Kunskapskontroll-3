@@ -1,3 +1,7 @@
+<?php
+$users = fetchAllUsers();
+consoleLog($user, false);
+?>
 <!DOCTYPE html>
 <html lang="sv"> 
 <head>
@@ -14,6 +18,14 @@
 
   <!-- Above header -->
   <header id="above">
+        <div class="">
+          <?php foreach ($users as $key => $user) { ?>
+            <form action="profile.php" method="get" style="float:right;">
+              <input type="hidden" name="id" value="<?=$user['id']?>">
+              <input type="submit" id="" value="My Profile">
+            </form>
+          <?php } ?>
+        </div>
     <nav class="login">
       <?php 
         if (isset($_SESSION['first_name'])) {
@@ -35,7 +47,7 @@
     <!-- Main navigation menu -->
     <nav class="navmenu">
       <a id="home-link"     href="index.php">Home</a>
-      <!-- <a id="createblog-link"   href="create_blog.php">Create Blog</a> -->
+      <!-- <a id="profile-link"  href="profile.php">My Profile</a> -->
       <!-- <a id="editblog-link"   href="edit_blog.php">Manage Blog</a> -->
       <!-- <a id="postform-link"   href="postform.php">Post form test</a> -->
     </nav>

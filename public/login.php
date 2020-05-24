@@ -20,29 +20,15 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-
-    try {
-      $query = "
-        SELECT * FROM users
-        WHERE email = :email;
-      ";
-      $stmt = $dbconnect->prepare($query);
-      $stmt->bindValue(":email", $email);
-      $stmt->execute();
-      $user = $stmt->fetch();
-    } catch (\PDOException $e) {
-      throw new \PDOException($e->getMessage(), (int) $e->getCode());
-    }
-
+    $user = fetchUserByEmail($email);
 
     if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['first_name'] = $user['first_name'];
-        redirect('index.php?successLogin');
+      $_SESSION['first_name'] = $user['first_name'];
+      redirect('index.php?successLogin');
     } else {
-        $errorMsg = '<div class="error_msg">Wrong Email or Password</div>';
+      $errorMsg = '<div class="error_msg">Wrong Email or Password</div>';
     }
   }
-
 ?>
 <?php include('layout/header.php'); ?>
     <!-- Sidans/Dokumentets huvudsakliga innehåll -->

@@ -1,7 +1,7 @@
 <?php
   require('../src/config.php');
   require(SRC_PATH . 'dbconnect.php');
-  $pageTitle = 'Register Sida';
+  $pageTitle = 'Register Account';
   $pageId = '';
 
 

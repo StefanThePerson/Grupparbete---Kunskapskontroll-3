@@ -13,7 +13,7 @@ checkSuccessLogin();
 <div id="content">
 	<?= $errorMsg ?>
 	<article class="border">
-		<h1>All Product Page</h1>
+		<h1>All Product</h1>
 	</article>
 </div>
 

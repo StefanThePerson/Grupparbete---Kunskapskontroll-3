@@ -6,7 +6,7 @@ function redirect($location) {
 }
 
 function checkLoginSession() {
-	if (!isset($_SESSION['username'])) {
+	if (!isset($_SESSION['first_name'])) {
 		redirect('login.php?mustLogin');
 	}
 }
@@ -15,13 +15,6 @@ function checkSuccessLogin() {
 	global $errorMsg;
 	if (isset($_GET['successLogin'])) {
 		$errorMsg = '<div class="success_msg">You have successfully logged in.</div>';
-	}
-}
-
-function checkSuccessLogout() {
-	global $errorMsg;
-	if (isset($_GET['logout'])) {
-		$errorMsg = '<div class="success_msg">You have logged out.</div>';    
 	}
 }
 
@@ -35,5 +28,6 @@ function consoleLog($var, $shouldExit = false) {
 		exit;
 	}
 }
+
 
 ?>
