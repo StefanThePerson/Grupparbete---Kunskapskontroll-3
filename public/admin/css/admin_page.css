@@ -1,17 +1,17 @@
 /*CSS för mickes admin sida*/
 
 /*admin index style for users*/
-#users-table {
+#users_table {
   margin-top: 40px;
   border-collapse: collapse; 
   margin-bottom: 40px;
 }
 #users_table tr,
 #users_table td,
-#users-table th {
+#users_table th {
   border: 1px solid black;
   padding: 10px;
 }
-.passwordWidth td {
-	width: 50px;
+tr td .passwordWidth {
+	width: 30px !important;
 }
