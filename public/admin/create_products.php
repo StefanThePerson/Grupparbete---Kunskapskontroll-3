@@ -69,7 +69,7 @@ if (isset($_POST['createProduct'])) {
 		<h1>Admin Page</h1>
     <form action="#" method="post" accept-charset="utf-8">
       <fieldset>
-        <legend>Create a new blog</legend>
+        <legend>Add a Product</legend>
 
         <?= $errorMsg ?>
 

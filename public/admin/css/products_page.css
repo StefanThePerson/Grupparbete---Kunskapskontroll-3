@@ -1,1 +1,14 @@
 /*CSS för marcus products sida*/
+
+/*admin index style for users*/
+#product_table {
+    margin-top: 40px;
+    border-collapse: collapse; 
+    margin-bottom: 40px;
+  }
+  #product_table tr,
+  #product_table td,
+  #product_table th {
+    border: 1px solid black;
+    padding: 10px;
+  }
