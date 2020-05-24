@@ -1,7 +1,7 @@
-<?php
+<!-- <?php
 $users = fetchAllUsers();
 consoleLog($user, false);
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="sv"> 
 <head>

@@ -1,0 +1,13 @@
+.profile-container h3 {
+	margin: 0;
+	padding: 15px 0 10px;
+}
+.profile-header {
+	float: left;
+}
+
+.profile-text {
+	/*border-bottom: 1px solid;*/
+	width: 70%;
+	padding-left: 220px !important;
+}
