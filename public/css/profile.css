@@ -8,6 +8,25 @@
 
 .profile-text {
 	/*border-bottom: 1px solid;*/
-	width: 70%;
-	padding-left: 220px !important;
+	width: 75%;
+	padding-left: 250px !important;
+}
+
+#linkBackToProfile {
+	text-decoration: underline;
+}
+
+#navbar-list-4 {
+	float: right;
+	padding: 0 10px 0;
+	bottom: 20px;
+}
+
+.dropdown-menu.show {
+	display: block;
+	position: absolute;
+	transform: translate3d(-100px, 56px, 0px);
+	top: 0px;
+	left: 0px;
+	will-change: transform;
 }

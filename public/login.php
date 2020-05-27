@@ -12,7 +12,7 @@
   }
 
   if (isset($_GET['logout'])) {
-    $errorMsg = '<div class="success_msg">You have logged out.</div>';    
+    $errorMsg = '<div class="success_msg">You have logged out.</div>';  
   }
 
 
@@ -24,6 +24,7 @@
 
     if ($user && password_verify($password, $user['password'])) {
       $_SESSION['first_name'] = $user['first_name'];
+      $_SESSION['id'] = $user['id'];
       redirect('index.php?successLogin');
     } else {
       $errorMsg = '<div class="error_msg">Wrong Email or Password</div>';

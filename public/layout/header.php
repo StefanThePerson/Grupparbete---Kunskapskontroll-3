@@ -1,11 +1,15 @@
-<!-- <?php
-$users = fetchAllUsers();
-consoleLog($user, false);
-?> -->
+<?php
+$user = fetchUserById($_SESSION['id']);
+// consoleLog($user, false);
+?> 
 <!DOCTYPE html>
 <html lang="sv"> 
 <head>
   <meta charset="utf-8">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
   
   <title><?php echo $pageTitle; ?></title>
 
@@ -18,19 +22,29 @@ consoleLog($user, false);
 
   <!-- Above header -->
   <header id="above">
-        <div class="">
-          <?php foreach ($users as $key => $user) { ?>
-            <form action="profile.php" method="get" style="float:right;">
-              <input type="hidden" name="id" value="<?=$user['id']?>">
-              <input type="submit" id="" value="My Profile">
-            </form>
-          <?php } ?>
-        </div>
     <nav class="login">
       <?php 
         if (isset($_SESSION['first_name'])) {
           $displayUsername = ucfirst($_SESSION['first_name']);
-          $aboveNav = "Welcome $displayUsername | <a href='logout.php'>Log Out</a>";
+          
+          $profileNav = '<div class="dropdown" id="navbar-list-4">
+                          <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="https://cdn3.iconfinder.com/data/icons/mixed-communication-and-ui-pack-1/48/general_pack_NEW_glyph_profile-512.png" width="40" height="40" class="rounded-circle">
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <form action="profile.php" method="get">
+                                  <input type="hidden" name="id" value="<?=$user["id"]?>
+                                  <input type="submit" class="dropdown-item" id="my-profil" value="My Profile">
+                                </form>
+                                <a class="dropdown-item" href="logout.php">Log Out</a>
+                              </div>
+                            </li>   
+                          </ul>
+                        </div>';
+
+          $aboveNav = "Welcome $displayUsername  $profileNav";
         } else {
           $aboveNav = "<a href='register.php'>Register</a> | <a href='login.php'>Log In</a>";
         }

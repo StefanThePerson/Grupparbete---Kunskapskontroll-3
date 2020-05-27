@@ -4,17 +4,16 @@
   $pageTitle = 'My Profile';
   $pageId = 'myprofile';
 
-  // checkLoginSession();
-
+  checkLoginSession();
 
   $user = fetchUserById($_GET['id']);
-  consoleLog($user, false);
+  // consoleLog($user, false);
 ?>
 <?php include('layout/header.php'); ?>
     <!-- Sidans/Dokumentets huvudsakliga innehåll -->
     <div id="content">
       <!-- <?= $errorMsg ?> -->
-      <article class="justify border" style="width:95%">
+      <article class="border">
         <h1>My Profile</h1>
 
         <figure class="right top">

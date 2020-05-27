@@ -92,7 +92,7 @@
 
       if ($result) {
         $errorMsg = '<div class="success_msg">You successfully updated the profile. 
-        <a href="profile.php">Go back to Profile</a></div>';
+        <a href="profile.php" id="linkBackToProfile">Go back to Profile</a></div>';
       } else {
         $errorMsg = '<div class="success_msg">Something went wrong, failed to update profile.</div>';
       }

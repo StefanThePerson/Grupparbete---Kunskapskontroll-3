@@ -15,6 +15,7 @@ checkSuccessLogin();
 	<article class="border">
 		<h1>All Product</h1>
 	</article>
+	
 </div>
 
 <?php include('layout/footer.php'); ?>
