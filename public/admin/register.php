@@ -1,49 +1,49 @@
 <?php
-  require('../src/config.php');
+  require('../../src/config.php');
   require(SRC_PATH . 'dbconnect.php');
-  $pageTitle = 'Register Account';
+  $pageTitle = 'Register';
   $pageId = '';
 
 
 
-  $fname = '';
-  $lname = '';
+  $first_name = '';
+  $last_name = '';
   $email = '';
-  $phonenr = '';
+  $phone = '';
   $street = '';
-  $postalcode = '';
+  $postal_code = '';
   $city = '';
   $country = '';
   $errorMsg = '';
   
   if (isset($_POST['register'])) {
-    $fname = trim($_POST['fname']);
-    $lname = trim($_POST['lname']);
+    $first_name = trim($_POST['first_name']);
+    $last_name = trim($_POST['last_name']);
     $email = trim($_POST['email']);
-    $phonenr = trim($_POST['phonenr']);
+    $phone = trim($_POST['phone']);
     $street = trim($_POST['street']);
-    $postalcode = trim($_POST['postalcode']);
+    $postal_code = trim($_POST['postal_code']);
     $city = trim($_POST['city']);
     $country = trim($_POST['country']);
     $password = trim($_POST['password']);
     $password2 = trim($_POST['password2']);
 
-    if (empty($fname)) {
-      $errorMsg .= "*You must have a Firstname</br>";
+    if (empty($first_name)) {
+      $errorMsg .= "*You must have a First Name</br>";
     }
-    if (empty($lname)) {
-      $errorMsg .= "*You must have a Lastname</br>";
+    if (empty($last_name)) {
+      $errorMsg .= "*You must have a Last Name</br>";
     }
     if (empty($email)) {
       $errorMsg .= "*You must have an Email</br>";
     }
-    if (empty($phonenr)) {
+    if (empty($phone)) {
       $errorMsg .= "*You must have a Phone Number</br>";
     }
     if (empty($street)) {
       $errorMsg .= "*You must have a Street</br>";
     }
-    if (empty($postalcode)) {
+    if (empty($postal_code)) {
       $errorMsg .= "*You must have a Postal Code</br>";
     }
     if (empty($city)) {
@@ -52,10 +52,9 @@
     if (empty($country)) {
       $errorMsg .= "*You must have a Country</br>";
     }
-    // if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    //   $errorMsg .= "*Incorrect Email";
-    // }
-
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $errorMsg .= "*Incorrect Email</br>";
+    }
     if (empty($password)) {
       $errorMsg .= "*You must choose a Password</br>";
     }
@@ -71,27 +70,20 @@
     }
 
     if (empty($errorMsg)) {
-      try {
-      $query = "
-        INSERT INTO users (first_name, last_name, email, 
-        password, phone, street, postal_code, city, country)
-        VALUES (:fname, :lname, :email, :password, :phonenr, :street, :postalcode, :city, :country);
-      ";
-      $stmt = $dbconnect->prepare($query); 
-      $stmt->bindValue(":fname", $fname);
-      $stmt->bindValue(":lname", $lname);
-      $stmt->bindValue(":email", $email);
-      $stmt->bindValue(":phonenr", $phonenr);
-      $stmt->bindValue(":street", $street);
-      $stmt->bindValue(":postalcode", $postalcode);
-      $stmt->bindValue(":city", $city);
-      $stmt->bindValue(":country", $country);
-      $stmt->bindValue(":password", password_hash($password, PASSWORD_BCRYPT));
-      $result = $stmt->execute();
+      $userData = [
+        'first_name'  => $first_name,
+        'last_name'   => $last_name,
+        'email'       => $email,
+        'phone'       => $phone,
+        'street'      => $street,
+        'postal_code' => $postal_code,
+        'city'        => $city,
+        'country'     => $country,
+        'password'    => $password,
+      ];
+      
+      $result = createUser($userData);
 
-      } catch (\PDOException $e) {
-          throw new \PDOException($e->getMessage(), (int) $e->getCode());
-      }
       if ($result) {
         $errorMsg = '<div class="success_msg">You successfully created a new account.</div>';
       } else {
@@ -113,12 +105,12 @@
 
                     <p>                        
                         <label for="input1">First Name:</label><br>
-                        <input type="text" class="text" name="fname" value="<?=$fname?>">
+                        <input type="text" class="text" name="first_name" value="<?=$first_name?>">
                     </p>
 
                     <p>                        
                         <label for="input1">Last Name:</label><br>
-                        <input type="text" class="text" name="lname" value="<?=$lname?>">
+                        <input type="text" class="text" name="last_name" value="<?=$last_name?>">
                     </p>
 
                     <p>                        
@@ -128,7 +120,7 @@
 
                     <p>                        
                         <label for="input1">Phone Number:</label><br>
-                        <input type="tel" class="text" name="phonenr" value="<?=$phonenr?>">
+                        <input type="tel" class="text" name="phone" value="<?=$phone?>">
                     </p>
 
                     <p>                        
@@ -138,7 +130,7 @@
 
                     <p>                        
                         <label for="input1">Postal Code:</label><br>
-                        <input type="text" class="text" name="postalcode" value="<?=$postalcode?>">
+                        <input type="text" class="text" name="postal_code" value="<?=$postal_code?>">
                     </p>
 
                     <p>                        
