@@ -110,7 +110,7 @@ $user = fetchUserById($_GET['id']);
 <div id="content">
 	<?= $errorMsg ?>
 	<article class="border">
-		<h1>Admin Page</h1>
+		<h1>Admin Panel - Update User Info</h1>
 	</article>
 </div>
 
