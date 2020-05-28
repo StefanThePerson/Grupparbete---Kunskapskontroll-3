@@ -20,7 +20,7 @@ if (isset($_POST['createProduct'])) {
   $title = trim($_POST['title']);
   $description = trim($_POST['description']);
   $price = trim($_POST['price']);
-  // $img_url = $newPathAndName;
+  // $img_url = trim($_POST['img_url']);
 
   if (empty($title)) {
     $errorMsg .= "*You must choose a title</br>";
@@ -29,7 +29,7 @@ if (isset($_POST['createProduct'])) {
     $errorMsg .= "*You must have a description</br>";
   }
   if (empty($price)) {
-    $errorMsg .= "*You must choose an price</br>";
+    $errorMsg .= "*You must choose a price</br>";
   }
 
   // Validation for file upload starts here
@@ -73,17 +73,17 @@ if (isset($_POST['createProduct'])) {
   }
 
   // db connection
-  if (empty($errorMsg)) {    
+  
+  if (empty($errorMsg)) {
     $productData = [
-      'title'        => $title,
-      'description'  => $description,
-      'price'        => $price,
-      'img_url'      => $img_url = $newPathAndName,
+      'title'       => $title,
+      'price'       => $price,
+      'description' => $description,
+      'img_url'     => $img_url = $newPathAndName,
     ];
-
-    // $img_url = $newPathAndName;
+    
     $result = createProduct($productData);
-
+    
     if ($result) {
       $errorMsg = '<div class="success_msg">You successfully created a new product.</div>';
     } else {
@@ -97,8 +97,9 @@ if (isset($_POST['createProduct'])) {
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
 
 <div id="content">
-	<article class="border">
-		<h1>Admin Page</h1>
+  <!-- <?= $errorMsg ?> -->
+  <article class="border">
+    <h1>Admin Page</h1>
     <form action="#" method="post" enctype="multipart/form-data" accept-charset="utf-8">
       <fieldset>
         <legend>Add a Product</legend>
@@ -125,19 +126,10 @@ if (isset($_POST['createProduct'])) {
         <p>
           <input type="submit" name="createProduct" value="Create">
         </p>
-    </form>
-    
-    <!--     <form action="" method="POST" enctype="multipart/form-data">
-	    <p>
-	    	file: <input type="file" name="uploadedFile" value=""/>
-	    </p>
-	    <p>
-	    	<input type="submit" name="upload" value="upload"/>
-	    </p>
-	  </form> -->
+      </form>
 
-	  <!-- <img src="<?=$img_url?>"> -->
-	</article>
+      <img src="<?=$img_url?>">
+  </article> 
 </div>
 
 <?php include('layout/footer.php'); ?>

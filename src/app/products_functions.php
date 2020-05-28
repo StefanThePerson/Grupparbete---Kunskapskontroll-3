@@ -18,7 +18,7 @@ function fetchProductById($id) {
 	global $dbconnect;
 
 	try {
-		$query = "
+		$query = " 
 		SELECT * FROM products
 		WHERE id = :id;
 		";
@@ -61,19 +61,19 @@ function updateProduct($productData) {
 	try {
 		$query = "
 		UPDATE products
-		SET title = :title, price = :price, description = :description
+		SET title = :title, price = :price, description = :description, img_url = :img_url
 		WHERE id = :id;
 		";
 		$stmt = $dbconnect->prepare($query); 
 		$stmt->bindValue(':title', $productData['title']);
 		$stmt->bindValue(':price', $productData['price']);
 		$stmt->bindValue(':description', $productData['description']);
-		// $stmt->bindValue(':img_url', $productData['img_url']);
+		$stmt->bindValue(':img_url', $productData['img_url']);
 		$stmt->bindValue(':id', $productData['id']);
 		$result = $stmt->execute();
 
 	} catch (\PDOException $e) {
-		throw new \PDOException($e->getMessage(), (int) $e->getCode());
+		throw new \PDOException($e->getMessage(), (int) $e->getCode()); 
 	}
 
 	return $result;
