@@ -15,6 +15,10 @@ $img_url = '';
 $errorMsg = '';
 $newPathAndName = "";
 
+// if(isset($_POST['upload'])){
+//   consoleLog($_FILES, false);
+
+
 
 if (isset($_POST['createProduct'])) {
   $title = trim($_POST['title']);
@@ -33,22 +37,22 @@ if (isset($_POST['createProduct'])) {
   }
 
   // Validation for file upload starts here
-  if(is_uploaded_file($_FILES['uploadedFile']['tmp_name'])) {
-    //this is the actual name of the file
-    $fileName = $_FILES['uploadedFile']['name'];
-    //this is the file type
-    $fileType = $_FILES['uploadedFile']['type'];
-    //this is the temporary name of the file
-    $fileTempName = $_FILES['uploadedFile']['tmp_name'];
-    //this is the path where you want to save the actual file
-    $path = "../admin/img/";
-    //this is the actual path and actual name of the file
+	if(is_uploaded_file($_FILES['uploadedFile']['tmp_name'])) {
+		//this is the actual name of the file
+		$fileName = $_FILES['uploadedFile']['name'];
+		//this is the file type
+		$fileType = $_FILES['uploadedFile']['type'];
+		//this is the temporary name of the file
+		$fileTempName = $_FILES['uploadedFile']['tmp_name'];
+		//this is the path where you want to save the actual file
+		$path = "img/";
+		//this is the actual path and actual name of the file
     $newPathAndName = $path . $fileName;
     // echo "uploaded to {$newPathAndName};";
 
-    // DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
-    // Check MIME Type by yourself.
-    $allowedFileTypes = [
+		// DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
+	  // Check MIME Type by yourself.
+	  $allowedFileTypes = [
       'jpg' => 'image/jpeg',
       'png' => 'image/png',
       'gif' => 'image/gif',
@@ -60,11 +64,11 @@ if (isset($_POST['createProduct'])) {
     } else {
         // Will try to upload the file with the function 'move_uploaded_file'
         // Returns true/false depending if it was successful or not
-      $isTheFileUploaded = move_uploaded_file($fileTempName, $newPathAndName);
-      if ($isTheFileUploaded == false) {
+        $isTheFileUploaded = move_uploaded_file($fileTempName, $newPathAndName);
+        if ($isTheFileUploaded == false) {
             // Otherwise, if upload unsuccessful, show errormessage
-        $errorMsg = '<div class="error_msg">Could not upload the file. Please try again</div><br>';
-      }
+            $errorMsg = '<div class="error_msg">Could not upload the file. Please try again</div><br>';
+        }
     }
   }
 
@@ -97,9 +101,9 @@ if (isset($_POST['createProduct'])) {
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
 
 <div id="content">
-  <!-- <?= $errorMsg ?> -->
-  <article class="border">
-    <h1>Admin Page</h1>
+	<!-- <?= $errorMsg ?> -->
+	<article class="border">
+		<h1>Admin Page</h1>
     <form action="#" method="post" enctype="multipart/form-data" accept-charset="utf-8">
       <fieldset>
         <legend>Add a Product</legend>
@@ -121,15 +125,15 @@ if (isset($_POST['createProduct'])) {
           <textarea name="description"><?=$description?></textarea>
         </p>
         <p>
-          file: <input type="file" name="uploadedFile" value=""/>
-        </p>
+	    	file: <input type="file" name="uploadedFile" value=""/>
+	    </p>
         <p>
           <input type="submit" name="createProduct" value="Create">
         </p>
-      </form>
-
-      <img src="<?=$img_url?>">
-  </article> 
+    </form>
+    
+	  <img src="<?=$img_url?>">
+	</article> 
 </div>
 
 <?php include('layout/footer.php'); ?>
