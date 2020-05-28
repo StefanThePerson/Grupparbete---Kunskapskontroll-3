@@ -4,19 +4,20 @@ require(SRC_PATH . 'dbconnect.php');
 $pageTitle = 'products';
 $pageId = 'products';
 
-
+consoleLog($_POST, false);
 
 $title = '';
 $price = '';
 $description = '';
-// $img_url = '';
+$img_url = '';
 $errorMsg = '';
+$newPathAndName = "";
 
-if (isset($_POST['updateProduct'])) {
+if (isset($_POST['updateProductBtn'])) {
   $title = trim($_POST['title']);
   $price = trim($_POST['price']);
   $description = trim($_POST['description']);
-//   $img_url = trim($_POST['img_url']);
+  // $img_url = trim($_POST['img_url']);
 
   if (empty($title)) {
     $errorMsg .= "*You must choose a title</br>";
@@ -25,25 +26,60 @@ if (isset($_POST['updateProduct'])) {
     $errorMsg .= "*You must have a price</br>";
   }
   if (empty($description)) {
-    $errorMsg .= "*You must choose an description</br>";
+    $errorMsg .= "*You must choose a description</br>";
   }
-//   if (empty($img_url)) {
-//     $errorMsg .= "*You must choose an image</br>";
-//   }
+
+  // Validation for file upload starts here
+	if(is_uploaded_file($_FILES['uploadedFile']['tmp_name'])) {
+		//this is the actual name of the file
+		$fileName = $_FILES['uploadedFile']['name'];
+		//this is the file type
+		$fileType = $_FILES['uploadedFile']['type'];
+		//this is the temporary name of the file
+		$fileTempName = $_FILES['uploadedFile']['tmp_name'];
+		//this is the path where you want to save the actual file
+		$path = "../admin/img/";
+		//this is the actual path and actual name of the file
+    $newPathAndName = $path . $fileName;
+    // echo "uploaded to {$newPathAndName};";
+
+		// DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
+	  // Check MIME Type by yourself.
+	  $allowedFileTypes = [
+      'jpg' => 'image/jpeg',
+      'png' => 'image/png',
+      'gif' => 'image/gif',
+    ];
+    
+    $isFileTypeAllowed = (bool) array_search($fileType, $allowedFileTypes, true);
+    if ($isFileTypeAllowed == false) {
+      $errorMsg = '<div class="error_msg">The file type is invalid. Allowed types are jpg, jpeg, png, gif.</div><br>';
+    } else {
+        // Will try to upload the file with the function 'move_uploaded_file'
+        // Returns true/false depending if it was successful or not
+        $isTheFileUploaded = move_uploaded_file($fileTempName, $newPathAndName);
+        if ($isTheFileUploaded == false) {
+            // Otherwise, if upload unsuccessful, show errormessage
+            $errorMsg = '<div class="error_msg">Could not upload the file. Please try again</div><br>';
+        }
+    }
+  }
+
   if (!empty($errorMsg)) {
     $errorMsg = "<ul class='error_msg'>{$errorMsg}</ul>";
   }
 
   if (empty($errorMsg)) {
+    $img_url = $newPathAndName;
     $productData = [
         'title'         => $title,
         'price'         => $price,
         'description'   => $description,
-        // 'img_url'       => $img_url,
+        'img_url'       => $img_url,
         'id'            => $_GET['id'],
-      ];
+    ];
       
-      $result = updateProduct($productData);
+      $result = updateProduct($productData); 
 
     if ($result) {
       $errorMsg = '<div class="success_msg">You successfully updated the product.</div>';
@@ -62,7 +98,7 @@ $product = fetchProductById($_GET['id']);
   <article class="border">
     <!-- <h1>Recent blogs</h1> -->
 
-    <form action="#" method="post" accept-charset="utf-8">
+    <form action="#" method="post" enctype="multipart/form-data" accept-charset="utf-8">
       <fieldset>
         <legend>Update blog</legend>
 
@@ -82,9 +118,18 @@ $product = fetchProductById($_GET['id']);
           <label for="input1">description:</label><br>
           <textarea name="description"><?=$product['description']?></textarea>
         </p>
+        
+        <p>
+          <label for="input1">product image:</label><br>
+          <img src="<?=htmlentities($product['img_url'])?>">
+        </p>
 
         <p>
-          <input type="submit" name="updateProduct" value="Update"> |
+	    	file: <input type="file" name="uploadedFile" value=""/>
+	    </p>
+
+        <p>
+          <input type="submit" name="updateProductBtn" value="Update"> |
           <a href="products.php">Go Back</a>
         </p>
       </fieldset>

@@ -18,7 +18,7 @@ function fetchProductById($id) {
 	global $dbconnect;
 
 	try {
-		$query = "
+		$query = " 
 		SELECT * FROM products
 		WHERE id = :id;
 		";
@@ -61,15 +61,37 @@ function updateProduct($productData) {
 	try {
 		$query = "
 		UPDATE products
-		SET title = :title, price = :price, description = :description
+		SET title = :title, price = :price, description = :description, img_url = :img_url
 		WHERE id = :id;
 		";
 		$stmt = $dbconnect->prepare($query); 
 		$stmt->bindValue(':title', $productData['title']);
 		$stmt->bindValue(':price', $productData['price']);
 		$stmt->bindValue(':description', $productData['description']);
-		// $stmt->bindValue(':img_url', $productData['img_url']);
+		$stmt->bindValue(':img_url', $productData['img_url']);
 		$stmt->bindValue(':id', $productData['id']);
+		$result = $stmt->execute();
+
+	} catch (\PDOException $e) {
+		throw new \PDOException($e->getMessage(), (int) $e->getCode()); 
+	}
+
+	return $result;
+}
+
+function createProduct($productData) {
+	global $dbconnect;
+
+	try {
+		$query = "
+		INSERT INTO products (title, description, price, img_url)
+		VALUES (:title, :description, :price, :img_url);
+		";
+		$stmt = $dbconnect->prepare($query); 
+		$stmt->bindValue(":title", $productData['title']);
+		$stmt->bindValue(":description", $productData['description']);
+		$stmt->bindValue(":price", $productData['price']);
+		$stmt->bindValue(":img_url", $productData['img_url']);
 		$result = $stmt->execute();
 
 	} catch (\PDOException $e) {
@@ -78,5 +100,6 @@ function updateProduct($productData) {
 
 	return $result;
 }
+
 
 ?>
