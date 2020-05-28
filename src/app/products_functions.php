@@ -79,4 +79,27 @@ function updateProduct($productData) {
 	return $result;
 }
 
+function createProduct($productData) {
+	global $dbconnect;
+
+	try {
+		$query = "
+		INSERT INTO products (title, description, price, img_url)
+		VALUES (:title, :description, :price, :img_url);
+		";
+		$stmt = $dbconnect->prepare($query); 
+		$stmt->bindValue(":title", $productData['title']);
+		$stmt->bindValue(":description", $productData['description']);
+		$stmt->bindValue(":price", $productData['price']);
+		$stmt->bindValue(":img_url", $productData['img_url']);
+		$result = $stmt->execute();
+
+	} catch (\PDOException $e) {
+		throw new \PDOException($e->getMessage(), (int) $e->getCode());
+	}
+
+	return $result;
+}
+
+
 ?>

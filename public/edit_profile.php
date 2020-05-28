@@ -120,37 +120,37 @@
 
             <p>                        
               <label for="input1">Last Name:</label><br>
-              <input type="text" class="text" name="last_name" value="<?=$user['last_name']?>">
+              <input type="text" class="text" name="last_name" value="<?=htmlentities($user['last_name'])?>">
             </p>
 
             <p>                        
               <label for="input1">Email:</label><br>
-              <input type="email" class="text" name="email" value="<?=$user['email']?>">
+              <input type="email" class="text" name="email" value="<?=htmlentities($user['email'])?>">
             </p>
 
             <p>                        
               <label for="input1">Phone Number:</label><br>
-              <input type="tel" class="text" name="phone" value="<?=$user['phone']?>">
+              <input type="tel" class="text" name="phone" value="<?=htmlentities($user['phone'])?>">
             </p>
 
             <p>                        
               <label for="input1">Street:</label><br>
-              <input type="text" class="text" name="street" value="<?=$user['street']?>">
+              <input type="text" class="text" name="street" value="<?=htmlentities($user['street'])?>">
             </p>
 
             <p>                        
               <label for="input1">Postal Code:</label><br>
-              <input type="text" class="text" name="postal_code" value="<?=$user['postal_code']?>">
+              <input type="text" class="text" name="postal_code" value="<?=htmlentities($user['postal_code'])?>">
             </p>
 
             <p>                        
               <label for="input1">City:</label><br>
-              <input type="text" class="text" name="city" value="<?=$user['city']?>">
+              <input type="text" class="text" name="city" value="<?=htmlentities($user['city'])?>">
             </p>
 
             <p>                        
               <label for="input1">Country:</label><br>
-              <input type="text" class="text" name="country" value="<?=$user['country']?>">
+              <input type="text" class="text" name="country" value="<?=htmlentities($user['country'])?>">
             </p>
 
             <p>

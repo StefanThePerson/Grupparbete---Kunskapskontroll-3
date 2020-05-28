@@ -28,7 +28,8 @@ $products = fetchAllProducts();
 				<th>title</th>
 				<th>price</th>
 				<th>description</th>
-				<th>product_image</th>
+				<th>product image url</th>
+				<th>product image</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -38,6 +39,7 @@ $products = fetchAllProducts();
 					<td><?=htmlentities($product['price'])?></td>
 					<td><?=htmlentities($product['description'])?></td>
 					<td><?=htmlentities($product['img_url'])?></td>
+					<td><img src="<?=htmlentities($product['img_url'])?>"></td>
 					<td>
 						<form action="edit_product.php" method="GET">
                             <input type="hidden" name="id" value="<?=$product['id']?>">
