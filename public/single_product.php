@@ -20,7 +20,7 @@ $product = fetchProductById($_GET['id']);
 		<h1>Product</h1>
 
 		<figure class="left top">
-			<img src="<?=htmlentities($product['img_url'])?>">
+			<img src="admin/<?=htmlentities($product['img_url'])?>">
 			<!-- <img src="img/dummy-profile.png" width=130> -->
 			<figcaption>
 				<p>Exempel på bild med text</p>

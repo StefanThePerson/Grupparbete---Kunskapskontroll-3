@@ -17,11 +17,11 @@ $products = fetchAllProducts();
 
 		<? foreach ($products as $key => $product) { ?>
 			<div class="card" style="width: 18rem; float: left;">
-				<img class="card-img-top" src="img/dummy-profile.png" alt="Card image cap">
+				<img class="card-img-top" src="admin/<?=htmlentities($product['img_url'])?>" alt="Card image cap" style="width:250px; height:250px;">
 				<div class="card-body">
 					<h5 class="card-title"><?=htmlentities($product['title'])?></h5>
 					<p class="card-text"><?=htmlentities($product['price'])?> Kr</p>
-					<img src="<?=htmlentities($product['img_url'])?>">
+					<!--<img src="admin/<?=htmlentities($product['img_url'])?>">-->
 
 					<form action="single_product.php" method="get">
 						<input type="hidden" name="id" value="<?=$product['id']?>">

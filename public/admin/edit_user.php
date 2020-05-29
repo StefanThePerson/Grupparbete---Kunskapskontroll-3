@@ -120,15 +120,15 @@ $user = fetchUserById($_GET['id']);
 			<form action="" method="POST">
 				<p>
 					<div>firstname</div>
-					<input type="text" name="first_name" class="text" value="<?=$user['first_name']?>">
+					<input type="text" name="first_name" class="text" value="<?=htmlentities($user['first_name'])?>">
 				</p>
 				<p>
 					<div>lastname</div>
-					<input type="text" name="last_name" class="text" value="<?=$user['last_name']?>">
+					<input type="text" name="last_name" class="text" value="<?=htmlentities($user['last_name'])?>">
 				</p>
 				<p>
 					<div>email</div>
-					<input type="text" name="email" class="text" value="<?=$user['email']?>">
+					<input type="text" name="email" class="text" value="<?=htmlentities($user['email'])?>">
 				</p>
 				<!--<p>
 					<div>re-enter password</div>
@@ -136,23 +136,23 @@ $user = fetchUserById($_GET['id']);
 				</p>-->
 				<p>
 					<div>phone</div>
-					<input type="text" name="phone" class="text" value="<?=$user['phone']?>">
+					<input type="text" name="phone" class="text" value="<?=htmlentities($user['phone'])?>">
 				</p>
 				<p>
 					<div>street</div>
-					<input type="text" name="street" class="text" value="<?=$user['street']?>">
+					<input type="text" name="street" class="text" value="<?=htmlentities($user['street'])?>">
 				</p>
 				<p>
 					<div>postal code</div>
-					<input type="text" name="postal_code" class="text" value="<?=$user['postal_code']?>">
+					<input type="text" name="postal_code" class="text" value="<?=htmlentities($user['postal_code'])?>">
 				</p>	
 				<p>
 					<div>city</div>
-					<input type="text" name="city" class="text" value="<?=$user['city']?>">
+					<input type="text" name="city" class="text" value="<?=htmlentities($user['city'])?>">
 				</p>
 				<p>
 					<div>country</div>
-					<input type="text" name="country" class="text" value="<?=$user['country']?>">
+					<input type="text" name="country" class="text" value="<?=htmlentities($user['country'])?>">
 				</p>
 				<p>
 					<div>password</div>

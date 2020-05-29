@@ -69,7 +69,6 @@
       $errorMsg = "<ul class='error_msg'>{$errorMsg}</ul>";
     }
 
-    // db connection
     if (empty($errorMsg)) {
       $userData = [
         'first_name'  => $first_name,
