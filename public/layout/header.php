@@ -1,4 +1,7 @@
 <?php
+$cartItemCount = count($_SESSION['cartItems']);
+//require('../src/config.php');
+//require(SRC_PATH . 'dbconnect.php');
 $user = fetchUserById($_SESSION['id']);
 // consoleLog($user, false);
 ?> 
@@ -61,9 +64,39 @@ $user = fetchUserById($_SESSION['id']);
     <!-- Main navigation menu -->
     <nav class="navmenu">
       <a id="home-link"     href="index.php">Home</a>
-      <div id="ThisIsTheShoppingCartIcon"><a href="cart.php"><i class="fa fa-shopping-cart"></i alt="cart-logo"></a></div>
+      <div id="cart-icon"><a href="cart.php"><i class="fa fa-shopping-cart"></i alt="cart-logo"></a></div>
+      <div id="cart-icon"><?=count($_SESSION['cartItems'])?></div>
       <!-- <a id="profile-link"  href="profile.php">My Profile</a> -->
       <!-- <a id="editblog-link"   href="edit_blog.php">Manage Blog</a> -->
       <!-- <a id="postform-link"   href="postform.php">Post form test</a> -->
     </nav>
   </header>
+
+<div class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"></a>
+  <ul class="dropdown-menu dropdown-cart" role="menu">
+    <div class="container">
+      <div class="shopping-cart">
+        <div class="shopping-cart-header">
+          <i class="fa fa-shopping-cart cart-icon"></i><span class="badge"><?=count($_SESSION['cartItems'])?></span>
+          <div class="shopping-cart-total">
+            <span class="lighter-text"></span>
+            <span class="main-color-text">$2,229.97</span>
+          </div>
+        </div> <!--end shopping-cart-header -->
+
+        <?php foreach ($_SESSION['cartItems'] as $key => $cart) { ?>
+          <ul class="shopping-cart-items">
+            <li class="clearfix">
+              <img src="admin/<?=htmlentities($cart['img_url'])?>" alt="item1" />
+              <span class="item-name"><?=htmlentities($cart['title'])?></span>
+              <span class="item-price">$<?=htmlentities($cart['price'])?></span>
+              <span class="item-quantity">Amount: <?=htmlentities($cart['amount'])?></span>
+            </li>
+          </ul>
+        <?php } ?>
+        <a href="#" class="btn btn-primary">Checkout</a>
+      </div> <!--end shopping-cart -->
+    </div> <!--end container -->
+  </ul>
+</div>

@@ -11,6 +11,10 @@ echo "<pre>";
 print_r($_SESSION['cartItems']);
 echo "</pre>";
 
+$cartItemCount = count($_SESSION['cartItems']);
+echo "<pre>";
+print_r($cartItemCount);
+echo "</pre>";
 //$products = fetchAllProducts();
 //session_destroy();
 ?>
