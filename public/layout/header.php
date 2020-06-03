@@ -1,15 +1,25 @@
 <?php
+// unset($_SESSION['cartItems']);
+if (!isset($_SESSION['cartItems'])) {
+  $_SESSION['cartItems'] = [];
+}
+
+// consoleLog($_SESSION['cartItems'], false);
+
+$cartTotalSum = 0;
 $cartItemCount = count($_SESSION['cartItems']);
-//require('../src/config.php');
-//require(SRC_PATH . 'dbconnect.php');
 $user = fetchUserById($_SESSION['id']);
-// consoleLog($user, false);
+
+foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
+  $cartTotalSum += $cartItem['price'] * $cartItem['amount'];
+}
 ?> 
 <!DOCTYPE html>
 <html lang="sv"> 
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
@@ -59,24 +69,24 @@ $user = fetchUserById($_SESSION['id']);
 
   <!-- Header with logo and main navigation -->
   <header id="top">
-    <!-- <h1>Min PHP-sida</h1> -->
 
     <!-- Main navigation menu -->
     <nav class="navmenu">
-      <a id="home-link"     href="index.php">Home</a>
+      <a id="home-link" href="index.php">Home</a>
       
+      <!-- shopping-cart dropdown -->
       <div class="dropdown" style="float: right;">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          <i class="fa fa-shopping-cart"></i> Cart <span class="badge"><?=count($_SESSION['cartItems'])?></span>
+        <a href="#" class="dropdown-toggle cart-dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-shopping-cart"></i> Cart <span class="badge"><?=$cartItemCount?></span>
         </a>
         <ul class="dropdown-menu dropdown-cart" role="menu">
           <div class="container">
             <div class="shopping-cart">
               <div class="shopping-cart-header">
-                <i class="fa fa-shopping-cart cart-icon"></i><span class="badge"><?=count($_SESSION['cartItems'])?></span>
+                <i class="fa fa-shopping-cart cart-icon"></i><span class="badge"><?=$cartItemCount?></span>
                 <div class="shopping-cart-total">
-                  <span class="lighter-text"></span>
-                  <span class="main-color-text">$2,229.97</span>
+                  <span class="lighter-text">Total: </span>
+                  <span class="main-color-text">$<?=$cartTotalSum?></span>
                 </div>
               </div> <!--end shopping-cart-header -->
 
@@ -90,13 +100,11 @@ $user = fetchUserById($_SESSION['id']);
                   </li>
                 </ul>
               <?php } ?>
-              <a href="#" class="btn btn-primary checkoutBtn">Checkout</a>
+              <a href="checkout.php" class="btn btn-primary checkoutBtn">Checkout</a>
             </div> <!--end shopping-cart -->
           </div> <!--end container -->
         </ul>
       </div>
-      <!-- <div id="cart-icon-count"><?=count($_SESSION['cartItems'])?></div> -->
-      <!-- <div id="cart-icon"><a href="cart.php"><i class="fa fa-shopping-cart"></i alt="cart-logo"></a></div> -->
       <!-- <a id="profile-link"  href="profile.php">My Profile</a> -->
       <!-- <a id="editblog-link"   href="edit_blog.php">Manage Blog</a> -->
       <!-- <a id="postform-link"   href="postform.php">Post form test</a> -->
