@@ -3,20 +3,20 @@
 }
 .container {
   margin: auto;
-  width: 80%;
+  width: 100%;
 }
 
 .badge {
-    background-color: #6394F8;
-    border-radius: 10px;
-    color: white;
-    display: inline-block;
-    font-size: 12px;
-    line-height: 1;
-    padding: 3px 7px;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
+  background-color: #6394F8;
+  border-radius: 10px;
+  color: white;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  padding: 3px 7px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
 .shopping-cart {
@@ -28,44 +28,41 @@
   border-radius: 3px;
   padding: 20px;
 }
-  
+.shopping-cart ul li {
+  display: inline;
+  padding-left: 20px;
+}
+.shopping-cart a {
+  text-decoration: none;
+}
+
 .shopping-cart-header {
-    border-bottom: 1px solid #E8E8E8;
-    padding-bottom: 15px;
+  border-bottom: 1px solid #E8E8E8;
+  padding-bottom: 15px;
 }
 .shopping-cart-total {
-      float: right;
+  float: right;
 }
-  
-  .shopping-cart-items {
-    
-    padding-top: 20px;
 
-      li {
-        margin-bottom: 18px;
-      }
-
-    img {
-      float: left;
-      margin-right: 12px;
-    }
-    
-    .item-name {
-      display: block;
-      padding-top: 10px;
-      font-size: 16px;
-    }
-    
-    .item-price {
-      color: $main-color;
-      margin-right: 8px;
-    }
-    
-    .item-quantity {
-      color: $light-text;
-    }
-  }
-   
+.shopping-cart-items {
+  padding: 0;
+}
+.shopping-cart-items img {
+  float: left;
+  margin-right: 12px;
+  width: 90px;
+  height: 90px;
+}
+.shopping-cart-items li {
+  margin-bottom: 18px;
+}
+.shopping-cart-items .item-name {
+  display: block;
+  padding-top: 10px;
+  font-size: 16px;
+}
+.shopping-cart-items .item-price {
+  margin-right: 8px;
 }
 
 .shopping-cart:after {
@@ -89,8 +86,8 @@
   float: left;
 }
 
-/*.button {
-  background: $main-color;
+.checkoutBtn {
+  /*background: red;*/
   color:white;
   text-align: center;
   padding: 12px;
@@ -99,11 +96,7 @@
   border-radius: 3px;
   font-size: 16px;
   margin: 25px 0 15px 0;
-  
-  &:hover {
-    background: lighten($main-color, 3%);
-  }
-}*/
+}
 
 .clearfix:after {
   content: "";
@@ -111,3 +104,10 @@
   clear: both;
 }
 
+.dropdown-cart.show {
+  position: absolute;
+  will-change: transform;
+  top: 0px;
+  left: 0px;
+  transform: translate3d(-232px, 32px, 0px);
+}
