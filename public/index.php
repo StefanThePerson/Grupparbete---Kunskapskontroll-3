@@ -30,7 +30,7 @@ $products = fetchAllProducts();
 						<input type="hidden" name="id" value="<?=$product['id']?>">
 						<input type="submit" class="btn btn-primary" value="Product Details">
 					</form>
-					<form action="cart.php" method="POST">
+					<form action="add_cart_item.php" method="POST">
 						<input type="hidden" name="itemId" value="<?=$product['id']?>">
 						<input type="number" name="amount" value="1" min="0">
 						<input type="submit" class="addToCart" value="Add to Cart">

@@ -31,6 +31,7 @@ if (!empty($_POST['amount'])) {
 		print_r($cartItem);
 		echo "</pre>";
 		$_SESSION['cartItems'] = $cartItem;
+		//session_destroy();
 	}
 }
 ?>

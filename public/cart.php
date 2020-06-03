@@ -12,6 +12,7 @@ print_r($_SESSION['cartItems']);
 echo "</pre>";
 
 //$products = fetchAllProducts();
+//session_destroy();
 ?>
 <?php include('layout/header.php'); ?>
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
