@@ -1,9 +1,36 @@
+.row{
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: row;
+}
+
+.product-card {
+	width: 19rem;
+}
+
 .card-img-top {
-	width: 330px;
+	width: 19rem;
 	height: 300px;
-	padding: 15px;
+	padding: 10px;
 }
 
 .card-text {
 	color: #6394F8;
+}
+
+#single-product-image {
+	width: 500px;
+	height: auto;
+}
+
+.product-container h3 {
+	margin: 0;
+	padding: 15px 0 10px;
+}
+.product-header {
+	float: left;
+}
+
+.product-text {
+	padding-left: 280px !important;
 }

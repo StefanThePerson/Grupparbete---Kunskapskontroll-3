@@ -16,42 +16,42 @@ $product = fetchProductById($_GET['id']);
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
 <div id="content">
 	<!-- <?= $errorMsg ?> -->
-	<article class="border">
-		<h1>Product</h1>
+	<div class="row">
+		<!-- <h1>Product</h1> -->
 
 		<figure class="left top">
-			<img src="admin/<?=htmlentities($product['img_url'])?>">
-			<!-- <img src="img/dummy-profile.png" width=130> -->
+			<img id="single-product-image" src="admin/<?=htmlentities($product['img_url'])?>">
 			<figcaption>
-				<p>Exempel på bild med text</p>
+				<!-- <p>Exempel på bild med text</p> -->
 			</figcaption>
 		</figure>
 
-		<div class="profile-container">
+		<div class="product-container">
 
 			<div>
-				<h3 class="profile-header">Product name: </h3>
-				<h3 class="profile-text" name="title"><?=htmlentities($product['title'])?></h3>
+				<h3 class="product-header">Product name: </h3>
+				<h3 class="product-text" name="title"><?=htmlentities($product['title'])?></h3>
 			</div>
 
 			<div>            
-				<h3 class="profile-header">Price: </h3>
-				<h3 class="profile-text" name="price"><?=htmlentities($product['price'])?> Kr</h3>
+				<h3 class="product-header">Price: </h3>
+				<h3 class="product-text" name="price">$<?=htmlentities($product['price'])?></h3>
 			</div>
 
 			<div>
-				<h3 class="profile-header">Product description: </h3>
-				<h3 class="profile-text" name="description"><?=htmlentities($product['description'])?></h3>
+				<h3 class="product-header">Product description: </h3>
+				<h3 class="product-text" name="description"><?=htmlentities($product['description'])?></h3>
 			</div>
 
 			<br>
-			<form action="edit_profile.php" method="get" style="padding-bottom: 10px;">
-				<input type="hidden" name="id" value="<?=$user['id']?>">
-				<input type="submit" value="Add to Cart">
+			<form action="add_cart_item.php" method="POST">
+				<input type="hidden" name="itemId" value="<?=$product['id']?>">
+				<input type="number" name="amount" value="1" min="0">
+				<input type="submit" name="addToCart" value="Add to Cart">
 			</form>
 		</div>
 
-	</article>
+	</div>
 </div>
 
 
