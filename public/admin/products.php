@@ -23,16 +23,18 @@ consoleLog($_POST, false);
   <article class="border">
     <h1>Product List</h1>
     
-    <table id="product_table">
-		<thead>
+    <table id="product_table" class="table">
+		<thead class="thead-dark">
 			<tr>
-				<th>title</th>
-				<th>price</th>
-				<th>description</th>
-				<th>product image url</th>
-				<th>product image</th>
+				<th scope="col">Title</th>
+				<th scope="col">Price</th>
+				<th scope="col">Description</th>
+				<th scope="col">product image url</th>
+				<th scope="col">product image</th>
+				<th scope="col"></th>
+				<th scope="col"></th>
 			</tr>
-		</thead>
+	  </thead>
 		<tbody>
 			<?php foreach ($products as $key => $product) { ?>
 				<tr>
