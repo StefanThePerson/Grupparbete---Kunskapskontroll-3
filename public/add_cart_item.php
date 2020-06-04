@@ -2,11 +2,6 @@
 require('../src/config.php');
 require(SRC_PATH . 'dbconnect.php');
 
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
-
-
 if (!empty($_POST['amount'])) {
 	$itemId = (int) $_POST['itemId'];
 	$amount = (int) $_POST['amount'];

@@ -10,6 +10,7 @@ $cartTotalSum = 0;
 $cartItemCount = count($_SESSION['cartItems']);
 $user = fetchUserById($_SESSION['id']);
 
+// sum amount of all product inside the cart
 foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
   $cartTotalSum += $cartItem['price'] * $cartItem['amount'];
 }
@@ -17,7 +18,9 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
 <!DOCTYPE html>
 <html lang="sv"> 
 <head>
+  <!-- Required meta tags -->
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Bootstrap CSS -->
@@ -91,7 +94,7 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
               </div> <!--end shopping-cart-header -->
 
               <?php foreach ($_SESSION['cartItems'] as $key => $cart) { ?>
-                <ul class="shopping-cart-items">
+                <ul class="shopping-cart-items border-bottom">
                   <li class="clearfix">
                     <img src="admin/<?=htmlentities($cart['img_url'])?>" alt="item1" />
                     <span class="item-name"><?=htmlentities($cart['title'])?></span>
