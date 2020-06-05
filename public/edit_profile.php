@@ -19,6 +19,7 @@
 
   if (isset($_POST['deleteBtn'])) {
     deleteUserById($_POST['id']);
+    redirect('logout.php');
   }
   
   if (isset($_POST['updateBtn'])) {

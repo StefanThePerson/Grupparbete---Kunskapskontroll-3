@@ -30,3 +30,7 @@
 	left: 0px;
 	will-change: transform;
 }
+
+.dropdown-menu .dropdown-item:hover {
+	background: #858585;
+}
