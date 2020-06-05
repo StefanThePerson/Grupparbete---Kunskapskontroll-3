@@ -78,8 +78,8 @@ $cartItemCount = count($_SESSION['cartItems']);
   </div>
 	<div class="form-row">
 	  <div class="form-group col-md-6">
-	    <label for="inputAddress">Address</label>
-	    <input type="text" class="form-control" name="address" id="inputAddress" placeholder="1234 Main St">
+	    <label for="inputStreet">Street</label>
+	    <input type="text" class="form-control" name="street" id="inputStreet" placeholder="1234 Main St">
 	  </div>
 	  <div class="form-group col-md-6">
 	      <label for="inputZip">Postal Code</label>
