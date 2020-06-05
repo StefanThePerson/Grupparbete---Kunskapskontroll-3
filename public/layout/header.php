@@ -108,8 +108,6 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
           </div> <!--end container -->
         </ul>
       </div>
-      <!-- <a id="profile-link"  href="profile.php">My Profile</a> -->
-      <!-- <a id="editblog-link"   href="edit_blog.php">Manage Blog</a> -->
-      <!-- <a id="postform-link"   href="postform.php">Post form test</a> -->
+      
     </nav>
   </header>

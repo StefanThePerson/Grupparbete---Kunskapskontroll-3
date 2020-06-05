@@ -241,7 +241,7 @@ body#source a#source-link {background:#858585;border:2px solid #656565;}
   margin-bottom:20px; 
   border: 1px solid #FBC2C4;
   color: #971F11;  
-  width:80%;
+  width:100%;
 }
 
 .success_msg{
@@ -250,5 +250,5 @@ body#source a#source-link {background:#858585;border:2px solid #656565;}
   margin-bottom:20px; 
   border: 1px solid #C6D880; 
   color: #264409;
-  width:80%;
+  width:100%;
 }

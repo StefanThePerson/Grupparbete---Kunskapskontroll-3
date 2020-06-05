@@ -4,11 +4,7 @@ require(SRC_PATH . 'dbconnect.php');
 $pageTitle = 'Home';
 $pageId = 'home';
 
-// if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-//   redirect('index.php?invalidPost');
-// }
-
-
+checkIfProductExist();
 $product = fetchProductById($_GET['id']);
 
 ?>

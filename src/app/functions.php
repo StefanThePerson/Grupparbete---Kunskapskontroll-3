@@ -18,6 +18,13 @@ function checkSuccessLogin() {
 	}
 }
 
+function checkIfProductExist() {
+	if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+		redirect('index.php?invalidProduct');
+	}
+}
+
+
 // debugging
 function consoleLog($var, $shouldExit = false) {
 	echo "<pre>";
