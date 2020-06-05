@@ -55,5 +55,65 @@ $cartItemCount = count($_SESSION['cartItems']);
 		</tr>
 	  </tbody>
 	</table>
-
+<!---->
+<form action="create_order.php" method="POST" id="checkForm">
+	<input type="hidden" name="cartTotalPrice" value="<?=$cartTotalSum?>">
+  <div class="form-row">
+  	<div class="form-group col-md-6">
+      <label for="inputEmail4">First Name</label>
+      <input type="text" class="form-control" name="firstName" id="inputEmail4" placeholder="First name">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Last Name</label>
+      <input type="text" class="form-control" name="lastName" id="inputPassword4" placeholder="Last name">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="text" class="form-control" name="email" id="inputEmail4" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="text" class="form-control" name="password" id="inputPassword4" placeholder="Password">
+    </div>
+  </div>
+	<div class="form-row">
+	  <div class="form-group col-md-6">
+	    <label for="inputAddress">Address</label>
+	    <input type="text" class="form-control" name="address" id="inputAddress" placeholder="1234 Main St">
+	  </div>
+	  <div class="form-group col-md-6">
+	      <label for="inputZip">Postal Code</label>
+	      <input type="text" class="form-control" name="postalCode" id="inputZip">
+	    </div>
+	</div>
+  <div class="form-row">
+  	<div class="form-group col-md-6">
+      <label for="inputZip">Phone Number</label>
+      <input type="text" class="form-control" name="phone">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" name="city" id="inputCity">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="inputState">Country</label>
+      <select name="country" id="inputState" class="form-control">
+        <option value="SE">Sweden</option>
+        <option value="NO">Norway</option>
+        <option value="FI">Finland</option>
+        <option value="DK">Denmark</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        I accept the terms and conditions.
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" name="createOrderBtn">Confirm Order</button>
+</form>
+<!---->
 <?php include('layout/footer.php'); ?>
