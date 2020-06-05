@@ -99,12 +99,18 @@
   clear: both;
 }
 
+.cart-dropdown {
+  float: right;
+  color: #FFFFFF;
+}
+
 .dropdown-cart.show {
   position: absolute;
   will-change: transform;
   top: 0px;
   left: 0px;
-  transform: translate3d(-250px, 32px, 0px);
+  transform: translate3d(-267px, 32px, 0px);
+  box-shadow: 1px 1px 5px grey;
 }
 
 .cart-dropdown-toggle::after {

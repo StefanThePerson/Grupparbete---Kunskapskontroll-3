@@ -45,7 +45,7 @@ header,footer,nav,article,section,aside,figure,figcaption,output{display:block;}
 */
 
 /* the header with navigation to related links */
-header#above{font-family:arial,helvetica,sans-serif;border-bottom:1px solid #E6E6E6;margin-bottom:4px;color:#000;height: 50px;}
+header#above{font-family:arial,helvetica,sans-serif;margin-bottom:4px;color:#000;height: 50px;}
 
 /* set width and center page */
 header#top,
@@ -65,11 +65,13 @@ div#footer{padding-bottom:20px;background:#E6E6E6;}
 -------------------------------------------------------- 
 
 */
-a {  color: inherit; outline:0;}
+a {  color: #FFFFFF; outline:0;}
 a:link    { }
 a:visited { }
-a:hover   { text-decoration:none; color:#5C0A0A; }
+a:hover   { text-decoration:none; color:#AFADAD; }
 a:active  { }
+a#home-link:hover {color: #AFADAD !important;}
+
 
 
 /* navigation menu
@@ -98,7 +100,13 @@ nav.navmenu a {padding:6px 8px;text-decoration:none;border:2px solid transparent
 nav.navmenu a:hover {background:#858585;border:2px solid #656565;}
 
 nav.related,
-nav.login {padding: 1em 0.5em 0.3em 1em;font-size:smaller;color:#666; float:right;}
+nav.login {padding: 1em 0.5em 0.3em 1em; float:right; height: 53px;}
+
+nav.related a,
+nav.login a {color: #666;}
+
+nav.related a:hover,
+nav.login a:hover {color: #000000;}
 
 /*nav.login {float:right;}*/
 
@@ -195,11 +203,7 @@ footer.byline img {padding:2px;outline:#999999 groove 1px;
 
 /* Border on right hand side of a column. */
 .border {
-  /*display: flex;*/
   border: none !important;
-  /*padding-right: 1em;*/
-  /*margin-right: 5px;*/
-  /*border-right: 1px solid #ddd;*/
 }
 
 /* Use this to create a horizontal ruler across a column. */
@@ -231,7 +235,8 @@ body#editblog a#editblog-link,
 body#postform a#postform-link,
 body#validate a#validate-link,
 body#test a#test-link,
-body#source a#source-link {background:#858585;border:2px solid #656565;}
+body#source a#source-link {color: #FFFFFF;}
+
 
 
 
@@ -251,4 +256,8 @@ body#source a#source-link {background:#858585;border:2px solid #656565;}
   border: 1px solid #C6D880; 
   color: #264409;
   width:100%;
+}
+
+.searchbar {
+  margin: auto;
 }

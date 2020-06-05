@@ -74,11 +74,17 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
   <header id="top">
 
     <!-- Main navigation menu -->
-    <nav class="navmenu">
+    <nav class="navbar navbar-dark bg-dark">
       <a id="home-link" href="index.php">Home</a>
       
+      <!-- search bar -->
+      <form class="form-inline searchbar">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search Product" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      
       <!-- shopping-cart dropdown -->
-      <div class="dropdown" style="float: right;">
+      <div class="dropdown cart-dropdown">
         <a href="#" class="dropdown-toggle cart-dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
           <i class="fa fa-shopping-cart"></i> Cart <span class="badge"><?=$cartItemCount?></span>
         </a>
