@@ -76,13 +76,17 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
     <!-- Main navigation menu -->
     <nav class="navbar navbar-dark bg-dark">
       <a id="home-link" href="index.php">Home</a>
-      
+
+
       <!-- search bar -->
       <form class="form-inline searchbar">
         <input class="form-control mr-sm-2" type="search" name="searchQuery" id="search-input" placeholder="Search Product" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <ul id="product-list" class="list-group">
+          <!-- List generated in main.js -->
+        </ul>
       </form>
-      
+
       <!-- shopping-cart dropdown -->
       <div class="dropdown cart-dropdown">
         <a href="#" class="dropdown-toggle cart-dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

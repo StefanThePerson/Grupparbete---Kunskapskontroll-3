@@ -2,11 +2,6 @@
 require('../src/config.php');
 require(SRC_PATH . 'dbconnect.php');
 
-echo "<pre>";
-print_r($_GET);
-echo "</pre>";
-exit;
-
 if (isset($_GET['searchQuery']) && !empty($_GET['searchQuery'])) {
 	try {
 	  $query = "
@@ -33,10 +28,9 @@ if (isset($_GET['searchQuery']) && !empty($_GET['searchQuery'])) {
 
 // output with JSON
 $data = [
-  'message' => '',
+  // 'message' => '',
   'products'    => $products,
 ];
 echo json_encode($data);
 
-?> 
-
+?>
