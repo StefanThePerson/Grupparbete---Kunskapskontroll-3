@@ -47,6 +47,7 @@
       <a id="home-link"     href="index.php">Home</a>
       <a id="create_products-link"   href="create_products.php">Create Products</a>
       <a id="products-link"   href="products.php">Products</a>
+      <a id="orders-link" href="orders.php">Pending Orders</a>
       <!-- <a id="editblog-link"   href="edit_blog.php">Manage Blog</a> -->
       <!-- <a id="postform-link"   href="postform.php">Post form test</a> -->
     </nav>

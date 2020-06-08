@@ -100,7 +100,7 @@ if (isset($_POST['createOrderBtn'])) {
 			throw new \PDOException($e->getmessage(), (int) $e->getCode());
 		}
 	}
-	unset($_SESSION['cartItems']);
+	//unset($_SESSION['cartItems']);
 	header('Location: order_confirmation.php');
 	exit;
 }
