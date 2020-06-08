@@ -30,7 +30,7 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
   <title><?php echo $pageTitle; ?></title>
 
   <link rel="stylesheet" type="text/css" href="css/forms.css"/>
-  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <link rel="stylesheet" type="text/css" href="css/style.css"/> 
 </head>
 
 <!-- The body id helps with highlighting current menu choice -->
@@ -79,7 +79,7 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
       
       <!-- search bar -->
       <form class="form-inline searchbar">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search Product" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" name="searchQuery" id="search-input" placeholder="Search Product" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
       
