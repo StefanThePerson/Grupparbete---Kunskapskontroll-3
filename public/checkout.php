@@ -10,7 +10,7 @@ $cartItemCount = count($_SESSION['cartItems']);
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
 	<!-- <?= $errorMsg ?> -->
 	<!-- <h1>Cart</h1> -->
-	<table class="table">
+	<table class="table checkout-table">
 	  <thead class="thead-dark">
 	    <tr>
 	      <th scope="col">Product</th>
@@ -37,7 +37,7 @@ $cartItemCount = count($_SESSION['cartItems']);
 		      <td>
 		      	<form action="delete-cart-item.php" method="post">
 		      		<input type="hidden" name="cartId" value="<?=$cartId?>">
-		      		<button type="submit" class="btn">
+		      		<button type="submit" class="btn" title="Remove">
 			      		<svg class="bi bi-trash-fill" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 			      		<path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
 			      		</svg>
@@ -78,8 +78,8 @@ $cartItemCount = count($_SESSION['cartItems']);
   </div>
 	<div class="form-row">
 	  <div class="form-group col-md-6">
-	    <label for="inputAddress">Address</label>
-	    <input type="text" class="form-control" name="address" id="inputAddress" placeholder="1234 Main St">
+	    <label for="inputStreet">Street</label>
+	    <input type="text" class="form-control" name="street" id="inputStreet" placeholder="1234 Main St">
 	  </div>
 	  <div class="form-group col-md-6">
 	      <label for="inputZip">Postal Code</label>

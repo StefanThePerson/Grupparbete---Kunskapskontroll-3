@@ -1,8 +1,14 @@
 <?php
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-exit;
+require('../src/config.php');
+require(SRC_PATH . 'dbconnect.php');
+$pageTitle = '';
+$pageId = '';
+
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
+// exit;
+
 //**********
 // Check if user already exists in DB
 if (isset($_POST['createOrderBtn'])) {
@@ -11,7 +17,7 @@ if (isset($_POST['createOrderBtn'])) {
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
     $phone = trim($_POST['phone']);
-    $address = trim($_POST['address']);
+    $street = trim($_POST['street']);
     $city = trim($_POST['city']);
     $country = trim($_POST['country']);
     $postalCode = trim($_POST['postalCode']);
@@ -37,7 +43,7 @@ if (isset($_POST['createOrderBtn'])) {
     	try {
 	    	$query = "
 				INSERT INTO users (first_name, last_name, email, password, phone, street, postal_code, city, country)
-				VALUES (:firstName, :lastName, :email, :password, :phone, :address, :postalCode, :city, :country);
+				VALUES (:firstName, :lastName, :email, :password, :phone, :street, :postalCode, :city, :country);
 			";
 			$stmt = $dbconnect->prepare($query);
 			$stmt->bindValue(':firstName', $firstName);
@@ -45,7 +51,7 @@ if (isset($_POST['createOrderBtn'])) {
 			$stmt->bindValue(':email', $email);
 			$stmt->bindValue(':password', $password);
 			$stmt->bindValue(':phone', $phone);
-			$stmt->bindValue(':address', $address);
+			$stmt->bindValue(':street', $street);
 			$stmt->bindValue(':city', $city);
 			$stmt->bindValue(':country', $country);
 			$stmt->bindValue(':postalCode', $postalCode);
@@ -60,13 +66,13 @@ if (isset($_POST['createOrderBtn'])) {
     try {
 	    $query = "
 			INSERT INTO orders (user_id, total_price, billing_full_name, billing_street, billing_postal_code, billing_city, billing_country)
-			VALUES (:userId, :cartTotalPrice, :fullName, :address, :postalCode, :city, :country);
+			VALUES (:userId, :cartTotalPrice, :fullName, :street, :postalCode, :city, :country);
 		";
 		$stmt = $dbconnect->prepare($query);
 		$stmt->bindValue(':userId', $userId);
 		$stmt->bindValue(':cartTotalPrice', $cartTotalPrice);
 		$stmt->bindValue(':fullName', "{$firstName} {$lastName}");
-		$stmt->bindValue(':address', $address);
+		$stmt->bindValue(':street', $street);
 		$stmt->bindValue(':postalCode', $postalCode);
 		$stmt->bindValue(':city', $city);
 		$stmt->bindValue(':country', $country);
