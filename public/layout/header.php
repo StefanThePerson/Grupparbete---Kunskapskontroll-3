@@ -30,7 +30,7 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
   <title><?php echo $pageTitle; ?></title>
 
   <link rel="stylesheet" type="text/css" href="css/forms.css"/>
-  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <link rel="stylesheet" type="text/css" href="css/style.css"/> 
 </head>
 
 <!-- The body id helps with highlighting current menu choice -->
@@ -49,7 +49,7 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="https://cdn3.iconfinder.com/data/icons/mixed-communication-and-ui-pack-1/48/general_pack_NEW_glyph_profile-512.png" width="40" height="40" class="rounded-circle">
                               </a>
-                              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                              <div class="dropdown-menu profile-dropdown" aria-labelledby="navbarDropdownMenuLink">
                                 <form action="profile.php" method="get">
                                   <input type="hidden" name="id" value="<?=$user["id"]?>
                                   <input type="submit" class="dropdown-item" id="my-profil" value="My Profile">
@@ -79,7 +79,7 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
       
       <!-- search bar -->
       <form class="form-inline searchbar">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search Product" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" name="searchQuery" id="search-input" placeholder="Search Product" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
       

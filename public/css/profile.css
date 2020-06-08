@@ -22,13 +22,23 @@
 	bottom: 20px;
 }
 
-.dropdown-menu.show {
-	display: block;
-	position: absolute;
-	transform: translate3d(-100px, 56px, 0px);
-	top: 0px;
-	left: 0px;
-	will-change: transform;
+.profile-dropdown.show:after {
+  bottom: 100%;
+  left: 69%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #7a7a7a;
+  border-width: 8px;
+  margin-left: -8px;
+}
+
+.profile-dropdown.show {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+	transform: translate3d(-89px, 52px, 0px) !important;
 }
 
 .dropdown-menu .dropdown-item:hover {
