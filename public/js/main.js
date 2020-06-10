@@ -37,19 +37,16 @@ $(document).ready(function() {
 			// console.log(product);
 
 			html +=
-				'<li class="list-group-item">' +
-					'<form action="single_product.php" method="get">' +
-						'<input type="hidden" name="id" value="' + product['id'] + '">' +
-						// '<input type="submit" class="btn btn-primary" value="Product Details">' +
+				'<li class="list-group-item search-product-list-group">' +
 
+					'<a href="single_product.php?id=' + product['id'] +'">' +
 						'<p class="float-left">' +
 							'<img src="admin/' + product['img_url'] + '"/>' +
 							product['title'] +
 							' - ' +
 							'$' + product['price'] +
 						'</p>' +
-
-					'</form>' +
+					'</a>'
 				'</li>';
 		}
 

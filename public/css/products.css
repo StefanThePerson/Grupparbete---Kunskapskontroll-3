@@ -45,3 +45,7 @@
 	width: 50px;
 	height: 50px;
 }
+
+.search-product-list-group a {
+	color: black;
+}

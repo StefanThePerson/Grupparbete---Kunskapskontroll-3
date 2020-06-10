@@ -2,6 +2,8 @@
 require('../src/config.php');
 require(SRC_PATH . 'dbconnect.php');
 
+$products = [];
+
 if (isset($_GET['searchQuery']) && !empty($_GET['searchQuery'])) {
 	try {
 	  $query = "
@@ -17,6 +19,7 @@ if (isset($_GET['searchQuery']) && !empty($_GET['searchQuery'])) {
 	  throw new \PDOException($e->getMessage(), (int) $e->getCode());
 	}
 } else {
+
 	// try {
 	//   $query = "SELECT * FROM products;";
 	//   $stmt = $dbconnect->query($query);
