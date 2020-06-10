@@ -1,0 +1,46 @@
+.profile-container h3 {
+	margin: 0;
+	padding: 15px 0 10px;
+}
+.profile-header {
+	float: left;
+}
+
+.profile-text {
+	/*border-bottom: 1px solid;*/
+	width: 75%;
+	padding-left: 250px !important;
+}
+
+#linkBackToProfile {
+	text-decoration: underline;
+}
+
+#navbar-list-4 {
+	float: right;
+	padding: 0 10px 0;
+	bottom: 20px;
+}
+
+.profile-dropdown.show:after {
+  bottom: 100%;
+  left: 69%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #7a7a7a;
+  border-width: 8px;
+  margin-left: -8px;
+}
+
+.profile-dropdown.show {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+	transform: translate3d(-89px, 52px, 0px) !important;
+}
+
+.dropdown-menu .dropdown-item:hover {
+	background: #858585;
+}

@@ -19,3 +19,7 @@ tr td .passwordWidth {
 table {
 	overflow-x: auto;
 }
+
+.order-table a {
+  color: black;
+}
