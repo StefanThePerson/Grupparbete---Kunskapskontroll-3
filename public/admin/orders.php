@@ -15,7 +15,7 @@ try {
 <?php include('layout/header.php'); ?>
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
 	<!-- <?= $errorMsg ?> -->
-	<h2>Manage Orders</h2>
+	<!-- <h2>Manage Orders</h2> -->
 	<table class="table checkout-table order-table">
 	  <thead class="thead-dark">
 	    <tr>
