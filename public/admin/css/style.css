@@ -88,6 +88,12 @@ header#top h1 {
   navmenu, related & login
   
 */
+
+/* Admin navbar */
+.admin-navbar{
+  justify-content: space-evenly;
+}
+
 nav.navmenu {
   font-family: arial;
   font-weight: bold;

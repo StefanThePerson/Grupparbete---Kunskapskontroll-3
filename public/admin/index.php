@@ -11,11 +11,7 @@ checkSuccessLogin();
 
 $pageTitle = 'Admin Page for Users';
 $pageId = 'adminUsers';
-//**********
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-//**********
+
 // Kollar om Delete kanppen har aktiverats
 if (isset($_POST['deleteUserBtn'])) {
     deleteUserById($_POST['id']);
@@ -39,20 +35,15 @@ try {
 			<form action="register.php" method="GET">
 				<input type="submit" name="" value="Create new user">
 			</form>
-			<table id="users_table">
-				<thead>
+			<table id="users_table" class="table">
+				<thead class="thead-dark">
 					<tr>
-						<!--<th>firstname</th>
-						<th>lastname</th>-->
-						<th>name</th>
-						<th>email</th>
-						<th>phone</th>
-						<!--<th>password</th>
-						<th>street</th>
-						<th>postal code</th>
-						<th>city</th>
-						<th>country</th>-->
-						<th>register date</th>
+						<th scope="col">name</th>
+						<th scope="col">email</th>
+						<th scope="col">phone</th>
+						<th scope="col">register date</th>
+						<th scope="col"></th>
+						<th scope="col"></th>
 					</tr>
 				</thead>
 				<tbody>

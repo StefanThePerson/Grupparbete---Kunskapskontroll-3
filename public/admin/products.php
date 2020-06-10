@@ -11,7 +11,7 @@ if (isset($_POST['deleteProductBtn'])) {
   }
 
 $products = fetchAllProducts();
-consoleLog($_POST, false);
+
 
 
 

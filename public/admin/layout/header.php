@@ -47,7 +47,7 @@
 
           $aboveNav = "Welcome $displayUsername  $profileNav";
         } else {
-          $aboveNav = "<a href='register.php'>Register</a> | <a href='../login.php'>Log In</a>";
+          $aboveNav = "<a href='register.php'>Register</a> | <a href='login.php'>Log In</a>";
         }
 
         echo $aboveNav;
@@ -61,7 +61,7 @@
     <!-- <h1>Min PHP-sida</h1> -->
 
     <!-- Main navigation menu -->
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-dark admin-navbar">
       <a id="home-link"     href="index.php">Home</a>
       <a id="create_products-link"   href="create_products.php">Create Products</a>
       <a id="products-link"   href="products.php">Products</a>

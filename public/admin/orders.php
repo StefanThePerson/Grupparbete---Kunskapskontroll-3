@@ -10,15 +10,13 @@ try {
 } catch (\PDOException $e) {
 	throw new \PDOException($e->getMessage(), (int) $e->getCode());
 }
-//echo "<pre>";
-//print_r($orders);
-//echo "</pre>";
+
 ?>
 <?php include('layout/header.php'); ?>
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
 	<!-- <?= $errorMsg ?> -->
 	<h2>Manage Orders</h2>
-	<table class="table checkout-table">
+	<table class="table checkout-table order-table">
 	  <thead class="thead-dark">
 	    <tr>
 	      <th>Order ID</th>
