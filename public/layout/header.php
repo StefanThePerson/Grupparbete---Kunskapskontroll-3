@@ -79,7 +79,7 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
 
 
       <!-- search bar -->
-      <form class="form-inline searchbar">
+      <form class="form-inline searchbar" autocomplete="off">
         <input class="form-control mr-sm-2" type="search" name="searchQuery" id="search-input" placeholder="Search Product" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         <ul id="product-list" class="list-group">
