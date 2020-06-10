@@ -6,9 +6,9 @@
 
 */
 @import url(forms.css);
-@import url(admin_page.css);
-@import url(products_page.css);
-
+@import url(profile.css);
+@import url(shopping_cart.css);
+@import url(products.css);
 
 /* general
 -------------------------------------------------------- 
@@ -27,7 +27,7 @@ body{font-family: 'Roboto', sans-serif;color:#333;}
 h1{text-transform:uppercase;} /* Transform all letter to uppercase. */
 h1,h2{border-bottom:1px solid #dddddd;} /* Put border below header h1 and h2 */
 
-img {border:0; margin-left:-25px;margin-bottom:0px;} /* No border around linked images */
+img {border:0;margin-bottom:0px;} /* No border around linked images */
 
 
 /* html5 elements
@@ -45,31 +45,33 @@ header,footer,nav,article,section,aside,figure,figcaption,output{display:block;}
 */
 
 /* the header with navigation to related links */
-header#above{font-family:arial,helvetica,sans-serif;border-bottom:1px solid #E6E6E6;margin-bottom:4px;color:#000;height: 25px;}
+header#above{font-family:arial,helvetica,sans-serif;margin-bottom:4px;color:#000;height: 50px;}
 
 /* set width and center page */
 header#top,
 div#content,
-footer#bottom{margin:0 auto;width:950px;}
+footer#bottom{margin:0 auto;width:100%;}
 
 /* add common padding to main content block */
-div#content{padding:1em 0 1em 0;}
+div#content{padding:1em 0 1em 0;width:70%;}
 
 /* add padding and background to the footer block */
 div#footer{padding-bottom:20px;background:#E6E6E6;}
 
-div#content{overflow:auto;} /* clearer-fix, see the guide for css20 */
+/*div#content{overflow:auto;}*/ /* clearer-fix, see the guide for css20 */
 
 
 /* a links
 -------------------------------------------------------- 
 
 */
-a {  color: inherit; outline:0;}
+a {  color: #FFFFFF; outline:0;}
 a:link    { }
 a:visited { }
-a:hover   { text-decoration:none; color:#5C0A0A; }
+a:hover   { text-decoration:none; color:#AFADAD; }
 a:active  { }
+a#home-link:hover {color: #AFADAD !important;}
+
 
 
 /* navigation menu
@@ -98,7 +100,13 @@ nav.navmenu a {padding:6px 8px;text-decoration:none;border:2px solid transparent
 nav.navmenu a:hover {background:#858585;border:2px solid #656565;}
 
 nav.related,
-nav.login {padding: 0.2em 1em 0.3em 1em;font-size:smaller;color:#666; float:right;}
+nav.login {padding: 1em 0.5em 0.3em 1em; float:right; height: 53px;}
+
+nav.related a,
+nav.login a {color: #666;}
+
+nav.related a:hover,
+nav.login a:hover {color: #000000;}
 
 /*nav.login {float:right;}*/
 
@@ -195,9 +203,7 @@ footer.byline img {padding:2px;outline:#999999 groove 1px;
 
 /* Border on right hand side of a column. */
 .border {
-  padding-right: 1em;
-  margin-right: 5px;
-  border-right: 1px solid #ddd;
+  border: none !important;
 }
 
 /* Use this to create a horizontal ruler across a column. */
@@ -229,7 +235,8 @@ body#editblog a#editblog-link,
 body#postform a#postform-link,
 body#validate a#validate-link,
 body#test a#test-link,
-body#source a#source-link {background:#858585;border:2px solid #656565;}
+body#source a#source-link {color: #FFFFFF;}
+
 
 
 
@@ -239,7 +246,7 @@ body#source a#source-link {background:#858585;border:2px solid #656565;}
   margin-bottom:20px; 
   border: 1px solid #FBC2C4;
   color: #971F11;  
-  width:80%;
+  width:100%;
 }
 
 .success_msg{
@@ -248,6 +255,9 @@ body#source a#source-link {background:#858585;border:2px solid #656565;}
   margin-bottom:20px; 
   border: 1px solid #C6D880; 
   color: #264409;
-  width:80%;
+  width:100%;
 }
 
+.searchbar {
+  margin: auto;
+}
