@@ -1,14 +1,13 @@
 <?php
 require('../src/config.php');
 require(SRC_PATH . 'dbconnect.php');
-$pageTitle = 'Checkout';
-$pageId = 'checkout';
+$pageTitle = 'Thank You';
+$pageId = 'thankYou';
 if (empty($_SESSION['cartItems'])) {
 	header('Location: index.php');
 	exit;
 }
 $cartItems = $_SESSION['cartItems'];
-unset($_SESSION['cartItems']);
 ?>
 <?php include('layout/header.php'); ?>
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
@@ -52,3 +51,6 @@ unset($_SESSION['cartItems']);
 	  </tbody>
 	</table>
 <?php include('layout/footer.php'); ?>
+<?php
+unset($_SESSION['cartItems']);
+?>
