@@ -23,11 +23,11 @@ $products = fetchAllProducts();
 
 					<form action="single_product.php" method="get">
 						<input type="hidden" name="id" value="<?=$product['id']?>">
-						<input type="submit" class="btn btn-primary" value="Product Details">
+						<input type="submit" class="btn btn-dark" value="Product Details">
 					</form>
 					<form action="add_cart_item.php" method="POST">
 						<input type="hidden" name="itemId" value="<?=$product['id']?>">
-						<input type="number" name="amount" value="1" min="0">
+						<input type="number" name="amount" id="addCartAmount" value="1" min="0">
 						<input type="submit" name="addToCart" value="Add to Cart">
 					</form>
 					<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->

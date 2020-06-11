@@ -5,6 +5,91 @@ $pageTitle = 'Checkout';
 $pageId = 'checkout';
 
 $cartItemCount = count($_SESSION['cartItems']);
+//**********
+$first_name = '';
+  $last_name = '';
+  $email = '';
+  $phone = '';
+  $street = '';
+  $postal_code = '';
+  $city = '';
+  $country = '';
+  $errorMsg = '';
+if (isset($_POST['register'])) {
+    $first_name = trim($_POST['first_name']);
+    $last_name = trim($_POST['last_name']);
+    $email = trim($_POST['email']);
+    $phone = trim($_POST['phone']);
+    $street = trim($_POST['street']);
+    $postal_code = trim($_POST['postal_code']);
+    $city = trim($_POST['city']);
+    $country = trim($_POST['country']);
+    $password = trim($_POST['password']);
+    $password2 = trim($_POST['password2']);
+
+    if (empty($first_name)) {
+      $errorMsg .= "*You must have a First Name</br>";
+    }
+    if (empty($last_name)) {
+      $errorMsg .= "*You must have a Last Name</br>";
+    }
+    if (empty($email)) {
+      $errorMsg .= "*You must have an Email</br>";
+    }
+    if (empty($phone)) {
+      $errorMsg .= "*You must have a Phone Number</br>";
+    }
+    if (empty($street)) {
+      $errorMsg .= "*You must have a Street</br>";
+    }
+    if (empty($postal_code)) {
+      $errorMsg .= "*You must have a Postal Code</br>";
+    }
+    if (empty($city)) {
+      $errorMsg .= "*You must have a City</br>";
+    }
+    if (empty($country)) {
+      $errorMsg .= "*You must have a Country</br>";
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $errorMsg .= "*Incorrect Email</br>";
+    }
+    if (empty($password)) {
+      $errorMsg .= "*You must choose a Password</br>";
+    }
+    if (!empty($password) && strlen($password) < 6) {
+      $errorMsg .= "*Password must be more than 6 characters</br>";
+    }
+    if ($password2 !== $password) {
+      $errorMsg .= "*Confirmed password does not match";
+    }
+
+    if (!empty($errorMsg)) {
+      $errorMsg = "<ul class='error_msg'>{$errorMsg}</ul>";
+    }
+
+    if (empty($errorMsg)) {
+      $userData = [
+        'first_name'  => $first_name,
+        'last_name'   => $last_name,
+        'email'       => $email,
+        'phone'       => $phone,
+        'street'      => $street,
+        'postal_code' => $postal_code,
+        'city'        => $city,
+        'country'     => $country,
+        'password'    => $password,
+      ];
+      
+      $result = createUser($userData);
+
+      if ($result) {
+        $errorMsg = '<div class="success_msg">You successfully created a new account.</div>';
+      } else {
+        $errorMsg = '<div class="success_msg">Something went wrong, failed to create account.</div>';
+      }
+   	}
+ }
 ?>
 <?php include('layout/header.php'); ?>
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
@@ -56,6 +141,7 @@ $cartItemCount = count($_SESSION['cartItems']);
 	  </tbody>
 	</table>
 <!---->
+<h1>Checkout Confirmation</h1>
 <form action="create_order.php" method="POST" id="checkForm">
 	<input type="hidden" name="cartTotalPrice" value="<?=$cartTotalSum?>">
   <div class="form-row">
@@ -113,7 +199,7 @@ $cartItemCount = count($_SESSION['cartItems']);
       </label>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary" name="createOrderBtn">Confirm Order</button>
+  <button type="submit" class="btn btn-dark" name="createOrderBtn">Confirm Order</button>
 </form>
 <!---->
 <?php include('layout/footer.php'); ?>

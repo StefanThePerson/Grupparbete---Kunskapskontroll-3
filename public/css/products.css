@@ -15,7 +15,7 @@
 }
 
 .card-text {
-	color: #6394F8;
+	color: black;
 }
 
 #single-product-image {
@@ -48,4 +48,14 @@
 
 .search-product-list-group a {
 	color: black;
+}
+.search-product-list-group a:hover {
+	color: rgb(85,85,85);
+}
+.search-product-list-group:hover {
+	background-color: rgb(232,232,232);
+}
+#addCartAmount {
+	width: 60%;
+	margin-top: 5px;
 }

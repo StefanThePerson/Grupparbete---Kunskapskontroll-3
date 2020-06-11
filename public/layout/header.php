@@ -81,7 +81,7 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
       <!-- search bar -->
       <form class="form-inline searchbar" autocomplete="off">
         <input class="form-control mr-sm-2" type="search" name="searchQuery" id="search-input" placeholder="Search Product" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
         
         <ul id="product-list" class="list-group">
           <!-- List generated in main.js -->
@@ -114,7 +114,7 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
                   </li>
                 </ul>
               <?php } ?>
-              <a href="checkout.php" class="btn btn-primary checkoutBtn">Checkout</a>
+              <a href="checkout.php" class="btn btn-dark checkoutBtn">Checkout</a>
             </div> <!--end shopping-cart -->
           </div> <!--end container -->
         </ul>

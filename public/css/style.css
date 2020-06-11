@@ -88,6 +88,10 @@ header#top h1 {
   navmenu, related & login
   
 */
+#search-input {
+  width: 500px;
+}
+
 nav.navmenu {
   font-family: arial;
   font-weight: bold;
