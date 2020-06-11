@@ -5,16 +5,17 @@ $pageTitle = 'Checkout';
 $pageId = 'checkout';
 
 $cartItemCount = count($_SESSION['cartItems']);
+$user = fetchUserById($_SESSION['id']);
 //**********
 $first_name = '';
-  $last_name = '';
-  $email = '';
-  $phone = '';
-  $street = '';
-  $postal_code = '';
-  $city = '';
-  $country = '';
-  $errorMsg = '';
+$last_name = '';
+$email = '';
+$phone = '';
+$street = '';
+$postal_code = '';
+$city = '';
+$country = '';
+$errorMsg = '';
 if (isset($_POST['register'])) {
     $first_name = trim($_POST['first_name']);
     $last_name = trim($_POST['last_name']);
@@ -147,43 +148,45 @@ if (isset($_POST['register'])) {
   <div class="form-row">
   	<div class="form-group col-md-6">
       <label for="inputEmail4">First Name</label>
-      <input type="text" class="form-control" name="firstName" id="inputEmail4" placeholder="First name">
+      <input type="text" class="form-control" name="firstName" id="inputEmail4" placeholder="First name" value="<?=$user['first_name']?>">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Last Name</label>
-      <input type="text" class="form-control" name="lastName" id="inputPassword4" placeholder="Last name">
+      <input type="text" class="form-control" name="lastName" id="inputPassword4" placeholder="Last name" value="<?=$user['last_name']?>">
     </div>
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="text" class="form-control" name="email" id="inputEmail4" placeholder="Email">
+      <input type="text" class="form-control" name="email" id="inputEmail4" placeholder="Email" value="<?=$user['email']?>">
     </div>
+    <?php if (empty($_SESSION['id'])) {  ?>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
       <input type="text" class="form-control" name="password" id="inputPassword4" placeholder="Password">
     </div>
+    <?php } ?>
   </div>
 	<div class="form-row">
 	  <div class="form-group col-md-6">
 	    <label for="inputStreet">Street</label>
-	    <input type="text" class="form-control" name="street" id="inputStreet" placeholder="1234 Main St">
+	    <input type="text" class="form-control" name="street" id="inputStreet" placeholder="1234 Main St" value="<?=$user['street']?>">
 	  </div>
 	  <div class="form-group col-md-6">
 	      <label for="inputZip">Postal Code</label>
-	      <input type="text" class="form-control" name="postalCode" id="inputZip">
+	      <input type="text" class="form-control" name="postalCode" id="inputZip" value="<?=$user['postal_code']?>">
 	    </div>
 	</div>
   <div class="form-row">
   	<div class="form-group col-md-6">
       <label for="inputZip">Phone Number</label>
-      <input type="text" class="form-control" name="phone">
+      <input type="text" class="form-control" name="phone" value="<?=$user['phone']?>">
     </div>
     <div class="form-group col-md-3">
       <label for="inputCity">City</label>
-      <input type="text" class="form-control" name="city" id="inputCity">
+      <input type="text" class="form-control" name="city" id="inputCity" value="<?=$user['city']?>">
     </div>
     <div class="form-group col-md-3">
       <label for="inputState">Country</label>
-      <select name="country" id="inputState" class="form-control">
+      <select name="country" id="inputState" class="form-control" value="<?=$user['country']?>">
         <option value="SE">Sweden</option>
         <option value="NO">Norway</option>
         <option value="FI">Finland</option>
