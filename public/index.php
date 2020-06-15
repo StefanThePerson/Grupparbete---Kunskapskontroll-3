@@ -34,8 +34,7 @@ $products = fetchAllProducts();
 				</div>
 			</div>
 		<? } ?>
-	</div>
-
+		</div>
 </div>
 
 <?php include('layout/footer.php'); ?>
