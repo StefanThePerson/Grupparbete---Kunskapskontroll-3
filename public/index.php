@@ -26,11 +26,15 @@ $products = fetchAllProducts();
 						<input type="submit" class="btn btn-dark" value="Product Details">
 					</form>
 					<form action="add_cart_item.php" method="POST">
-						<input type="hidden" name="itemId" value="<?=$product['id']?>">
-						<input type="number" name="amount" id="addCartAmount" value="1" min="0">
-						<input type="submit" name="addToCart" value="Add to Cart">
+						<div class="input-group mb-3">
+							<input type="hidden" name="itemId" value="<?=$product['id']?>">
+							<input type="number" name="amount" class="form-control" id="addCartAmount" value="1" min="0">
+							<div class="input-group-append">
+								<input type="submit" name="addToCart" class="btn btn-outline-secondary" value="Add to Cart">
+							</div>
+						</div>
 					</form>
-					<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+
 				</div>
 			</div>
 		<? } ?>

@@ -20,7 +20,7 @@ $products = fetchAllProducts();
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
 <div id="content">
   <?= $errorMsg ?>
-  <article class="border">
+  <!-- <article class="border"> -->
     <h1>Product List</h1>
     
     <table id="product_table" class="table">
@@ -59,7 +59,7 @@ $products = fetchAllProducts();
 			<?php } ?>
 		</tbody>
 	</table>    
-  </article>
+  <!-- </article> -->
 </div>
 
 <?php include('layout/footer.php'); ?>

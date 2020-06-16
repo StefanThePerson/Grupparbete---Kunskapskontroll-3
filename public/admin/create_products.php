@@ -89,7 +89,8 @@ if (isset($_POST['createProduct'])) {
     $result = createProduct($productData);
     
     if ($result) {
-      $errorMsg = '<div class="success_msg">You successfully created a new product.</div>';
+      $errorMsg = '<div class="success_msg">You successfully created a new product.
+      <a href="products.php" class="btn btn-outline-success">Go to Products</a></div>';
     } else {
       $errorMsg = '<div class="success_msg">Somthing went wrong, failed to create a product.</div>';
     }
@@ -124,15 +125,19 @@ if (isset($_POST['createProduct'])) {
           <label for="input1">Description:</label><br>
           <textarea name="description"><?=$description?></textarea>
         </p>
+
         <p>
-	    	file: <input type="file" name="uploadedFile" value=""/>
+          <label for="input1">product image:</label><br>
+          <img src="<?=$img_url?>">
+        </p>
+
+        <p>
+	    	Upload image: <input type="file" class="btn btn-outline-dark" name="uploadedFile" value=""/>
 	    </p>
         <p>
-          <input type="submit" name="createProduct" value="Create">
+          <input type="submit" class="btn btn-dark" name="createProduct" value="Create">
         </p>
     </form>
-    
-	  <img src="<?=$img_url?>">
 	</article> 
 </div>
 

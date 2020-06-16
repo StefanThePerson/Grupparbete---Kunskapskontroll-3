@@ -1,10 +1,10 @@
 <?php
 require('../../src/config.php');
 require(SRC_PATH . 'dbconnect.php');
-$pageTitle = 'products';
-$pageId = 'products';
+$pageTitle = 'Edit Product';
+$pageId = 'editproduct';
 
-consoleLog($_POST, false);
+// consoleLog($_POST, false);
 
 $title = '';
 $price = '';
@@ -82,7 +82,8 @@ if (isset($_POST['updateProductBtn'])) {
       $result = updateProduct($productData); 
 
     if ($result) {
-      $errorMsg = '<div class="success_msg">You successfully updated the product.</div>';
+      $errorMsg = '<div class="success_msg">You successfully updated the product.
+      <a href="products.php" class="btn btn-outline-success">Go to Products</a></div>';
     } else {
       $errorMsg = '<div class="success_msg">Somthing went wrong, failed to update product.</div>';
     }
@@ -106,17 +107,17 @@ $product = fetchProductById($_GET['id']);
 
         <p>                        
           <label for="input1">title:</label><br>
-          <input type="text" class="text" name="title" value="<?=$product['title']?>" autofocus>
+          <input type="text" class="text" name="title" value="<?=htmlentities($product['title'])?>">
         </p>
 
         <p>                        
           <label for="input1">price:</label><br>
-          <input type="text" class="text" name="price" value="<?=$product['price']?>">
+          <input type="text" class="text" name="price" value="<?=htmlentities($product['price'])?>">
         </p>
 
         <p>
           <label for="input1">description:</label><br>
-          <textarea name="description"><?=$product['description']?></textarea>
+          <textarea name="description"><?=htmlentities($product['description'])?></textarea>
         </p>
         
         <p>
@@ -125,12 +126,12 @@ $product = fetchProductById($_GET['id']);
         </p>
 
         <p>
-	    	file: <input type="file" name="uploadedFile" value=""/>
+	    	file: <input type="file" name="uploadedFile" value="<?=$product['img_url']?>"/>
 	    </p>
 
         <p>
-          <input type="submit" name="updateProductBtn" value="Update"> |
-          <a href="products.php">Go Back</a>
+          <input type="submit" class="btn btn-dark" name="updateProductBtn" value="Update"> |
+          <a href="products.php" class="btn btn-dark">Go Back</a>
         </p>
       </fieldset>
     </form>

@@ -210,6 +210,8 @@ footer.byline img {padding:2px;outline:#999999 groove 1px;
 /* Border on right hand side of a column. */
 .border {
   border: none !important;
+  margin: auto;
+  width: 70%;
 }
 
 /* Use this to create a horizontal ruler across a column. */

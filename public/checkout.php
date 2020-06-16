@@ -94,13 +94,14 @@ if (isset($_POST['register'])) {
 ?>
 <?php include('layout/header.php'); ?>
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
+<div id="content">
 	<!-- <?= $errorMsg ?> -->
-	<!-- <h1>Cart</h1> -->
+	<h1>Your Shopping Cart</h1>
 	<table class="table checkout-table">
 	  <thead class="thead-dark">
 	    <tr>
 	      <th scope="col">Product</th>
-	      <th scope="col">Description</th>
+	      <th scope="col" width="50%;">Description</th>
 	      <th scope="col">Amount</th>
 	      <th scope="col">Price per unit</th>
 	      <th scope="col"></th>
@@ -141,6 +142,7 @@ if (isset($_POST['register'])) {
 		</tr>
 	  </tbody>
 	</table>
+
 <!---->
 <h1>Checkout Confirmation</h1>
 <form action="create_order.php" method="POST" id="checkForm">
@@ -205,4 +207,5 @@ if (isset($_POST['register'])) {
   <button type="submit" class="btn btn-dark" name="createOrderBtn">Confirm Order</button>
 </form>
 <!---->
+</div>
 <?php include('layout/footer.php'); ?>

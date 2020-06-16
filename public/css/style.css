@@ -25,7 +25,7 @@ body{font-family: 'Roboto', sans-serif;color:#333;}
 
 
 h1{text-transform:uppercase;} /* Transform all letter to uppercase. */
-h1,h2{border-bottom:1px solid #dddddd;} /* Put border below header h1 and h2 */
+h1,h2{padding-top:20px;border-bottom:1px solid #dddddd;} /* Put border below header h1 and h2 */
 
 img {border:0;margin-bottom:0px;} /* No border around linked images */
 
@@ -208,6 +208,8 @@ footer.byline img {padding:2px;outline:#999999 groove 1px;
 /* Border on right hand side of a column. */
 .border {
   border: none !important;
+  margin: auto;
+  width: 70%;
 }
 
 /* Use this to create a horizontal ruler across a column. */

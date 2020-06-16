@@ -30,10 +30,10 @@ try {
 <?php include('layout/header.php'); ?>
 	<div id="content">
 		<?= $errorMsg ?>
-		<h1>Admin Panel - View All Users</h1>
-		<article class="border">
+		<!-- <article class="border"> -->
+			<h1>Admin Panel - View All Users</h1>
 			<form action="register.php" method="GET">
-				<input type="submit" name="" value="Create new user">
+				<input type="submit" class="btn btn-dark" name="" value="Create new user">
 			</form>
 			<table id="users_table" class="table">
 				<thead class="thead-dark">
@@ -76,6 +76,6 @@ try {
 					<?php } ?>
 				</tbody>
 			</table>
-		</article>
+		<!-- </article> -->
 	</div>
 <?php include('layout/footer.php'); ?>

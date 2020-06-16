@@ -64,7 +64,7 @@
                     </p>
 
                     <p>
-                        <input type="submit" name="doLogin" value="Login">
+                        <input type="submit" class="btn btn-dark" name="doLogin" value="Login">
                     </p>
                 </fieldset>
             </form>

@@ -154,7 +154,7 @@
                     </p>
 
                     <p>
-                        <input type="submit" name="register" value="Create">
+                        <input type="submit" class="btn btn-dark" name="register" value="Create">
                     </p>
                 </fieldset>
             </form>

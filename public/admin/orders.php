@@ -14,9 +14,10 @@ try {
 ?>
 <?php include('layout/header.php'); ?>
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
+<div id="content">
 	<!-- <?= $errorMsg ?> -->
-	<!-- <h2>Manage Orders</h2> -->
-	<table class="table checkout-table order-table">
+	<h1>Manage Orders</h1>
+	<table class="table order-table">
 	  <thead class="thead-dark">
 	    <tr>
 	      <th>Order ID</th>
@@ -47,4 +48,5 @@ try {
 		<?php } ?>
 	  </tbody>
 	</table>
+</div>	
 <?php include('layout/footer.php'); ?>

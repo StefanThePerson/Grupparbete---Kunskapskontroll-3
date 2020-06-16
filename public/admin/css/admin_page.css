@@ -1,10 +1,12 @@
 /*CSS för mickes admin sida*/
 
 /*admin index style for users*/
-#users_table {
+#users_table,
+.order-table {
   margin-top: 40px;
-  border-collapse: collapse; 
   margin-bottom: 40px;
+  border-collapse: collapse;
+  text-align: center; 
 }
 #users_table tr,
 #users_table td,
