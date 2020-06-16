@@ -74,51 +74,64 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
   <header id="top">
 
     <!-- Main navigation menu -->
-    <nav class="navbar navbar-dark bg-dark">
-      <a id="home-link" href="index.php">Home</a>
-
-
-      <!-- search bar -->
-      <form class="form-inline searchbar" autocomplete="off">
-        <input class="form-control mr-sm-2" type="search" name="searchQuery" id="search-input" placeholder="Search Product" aria-label="Search">
-        <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-        
-        <ul id="product-list" class="list-group">
-          <!-- List generated in main.js -->
-        </ul>
-      </form>
-
-      <!-- shopping-cart dropdown -->
-      <div class="dropdown cart-dropdown">
-        <a href="#" class="dropdown-toggle cart-dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          <i class="fa fa-shopping-cart"></i> Cart <span class="badge"><?=$cartItemCount?></span>
-        </a>
-        <ul class="dropdown-menu dropdown-cart" role="menu">
-          <div class="container">
-            <div class="shopping-cart">
-              <div class="shopping-cart-header">
-                <i class="fa fa-shopping-cart cart-icon"></i><span class="badge"><?=$cartItemCount?></span>
-                <div class="shopping-cart-total">
-                  <span class="lighter-text">Total: </span>
-                  <span class="main-color-text">$<?=$cartTotalSum?></span>
-                </div>
-              </div> <!--end shopping-cart-header -->
-
-              <?php foreach ($_SESSION['cartItems'] as $key => $cart) { ?>
-                <ul class="shopping-cart-items border-bottom">
-                  <li class="clearfix">
-                    <img src="admin/<?=htmlentities($cart['img_url'])?>" alt="item1" />
-                    <span class="item-name"><?=htmlentities($cart['title'])?></span>
-                    <span class="item-price">$<?=htmlentities($cart['price'])?></span>
-                    <span class="item-quantity">Amount: <?=htmlentities($cart['amount'])?></span>
-                  </li>
-                </ul>
-              <?php } ?>
-              <a href="checkout.php" class="btn btn-dark checkoutBtn">Checkout</a>
-            </div> <!--end shopping-cart -->
-          </div> <!--end container -->
-        </ul>
-      </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.php">
+        <img src="https://i.redd.it/dyu0ryd8v2c41.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        Crunch 'n Cuties
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a id="home-link" href="index.php">Home</a>
+          </li>
+        </ul>
+        <!-- <a id="home-link" href="index.php">Home</a> -->
+
+        <!-- search bar -->
+        <form class="form-inline searchbar" autocomplete="off">
+          <input class="form-control mr-sm-2" type="search" name="searchQuery" id="search-input" placeholder="Search Product" aria-label="Search">
+          
+          <ul id="product-list" class="list-group">
+            <!-- List generated in main.js -->
+          </ul>
+        </form>
+
+        <!-- shopping-cart dropdown -->
+        <div class="dropdown cart-dropdown">
+          <a href="#" class="dropdown-toggle cart-dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <i class="fa fa-shopping-cart"></i> Cart <span class="badge"><?=$cartItemCount?></span>
+          </a>
+          <ul class="dropdown-menu dropdown-cart" role="menu">
+            <div class="container">
+              <div class="shopping-cart">
+                <div class="shopping-cart-header">
+                  <i class="fa fa-shopping-cart cart-icon"></i><span class="badge"><?=$cartItemCount?></span>
+                  <div class="shopping-cart-total">
+                    <span class="lighter-text">Total: </span>
+                    <span class="main-color-text">$<?=$cartTotalSum?></span>
+                  </div>
+                </div> <!--end shopping-cart-header -->
+
+                <?php foreach ($_SESSION['cartItems'] as $key => $cart) { ?>
+                  <ul class="shopping-cart-items border-bottom">
+                    <li class="clearfix">
+                      <img src="admin/<?=htmlentities($cart['img_url'])?>" alt="item1" />
+                      <span class="item-name"><?=htmlentities($cart['title'])?></span>
+                      <span class="item-price">$<?=htmlentities($cart['price'])?></span>
+                      <span class="item-quantity">Amount: <?=htmlentities($cart['amount'])?></span>
+                    </li>
+                  </ul>
+                <?php } ?>
+                <a href="checkout.php" class="btn btn-dark checkoutBtn">Checkout</a>
+              </div> <!--end shopping-cart -->
+            </div> <!--end container -->
+          </ul>
+        </div>
+
+      </div>
     </nav>
   </header>

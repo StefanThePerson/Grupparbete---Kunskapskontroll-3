@@ -76,6 +76,7 @@
               <input type="submit" class="btn btn-dark" value="Edit Profile">
             </form>
           </div>
+        </fieldset>
       </article>
     </div>
 

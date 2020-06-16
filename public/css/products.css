@@ -43,6 +43,8 @@
 
 #product-list {
 	position: absolute;
+	max-width: 29.5rem;
+	width: 100%;
 	top: 50px;
 	z-index: 10000;
 	box-shadow: 0 1px 15px rgba(27,31,35,.15);
