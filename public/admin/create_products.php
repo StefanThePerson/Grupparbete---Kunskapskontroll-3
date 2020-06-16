@@ -5,7 +5,6 @@ $pageTitle = 'Admin Page';
 $pageId = 'admin';
 
 // checkSuccessLogin();
-// $posts = fetchAllPosts();
 
 
 $title = '';
@@ -100,17 +99,13 @@ if (isset($_POST['createProduct'])) {
 ?>
 <?php include('layout/header.php'); ?>
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
-
 <div id="content">
-	<!-- <?= $errorMsg ?> -->
 	<article class="border">
-		<h1>Admin Page</h1>
-    <form action="#" method="post" enctype="multipart/form-data" accept-charset="utf-8">
-      <fieldset>
-        <legend>Add a Product</legend>
-
-        <?= $errorMsg ?>
-
+    <fieldset>
+      <?= $errorMsg ?>
+		  <h1>Create new Product</h1>
+      
+      <form action="#" method="post" enctype="multipart/form-data" accept-charset="utf-8">
         <p>                        
           <label for="input1">Title:</label><br>
           <input type="text" class="text" name="title" value="<?=$title?>">
@@ -133,12 +128,14 @@ if (isset($_POST['createProduct'])) {
 
         <p>
 	    	Upload image: <input type="file" class="btn btn-outline-dark" name="uploadedFile" value=""/>
-	    </p>
+	     </p>
+
         <p>
           <input type="submit" class="btn btn-dark" name="createProduct" value="Create">
         </p>
-    </form>
-	</article> 
+      </form>
+    </fieldset>
+	</article>
 </div>
 
 <?php include('layout/footer.php'); ?>

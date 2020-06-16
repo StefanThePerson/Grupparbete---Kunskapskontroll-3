@@ -11,9 +11,11 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+  
+  <!-- CUSTOM CSS -->
   <link rel="stylesheet" type="text/css" href="css/admin_page.css"/>
   <link rel="stylesheet" type="text/css" href="css/products_page.css"/>
+  <link rel="stylesheet" type="text/css" href="css/profile.css"/>
   <link rel="stylesheet" type="text/css" href="css/forms.css"/>
   <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
@@ -58,15 +60,13 @@
 
   <!-- Header with logo and main navigation -->
   <header id="top">
-    <!-- <h1>Min PHP-sida</h1> -->
 
     <!-- Main navigation menu -->
     <nav class="navbar navbar-dark bg-dark admin-navbar">
       <a id="home-link"     href="index.php">Home</a>
-      <a id="create_products-link"   href="create_products.php">Create Products</a>
       <a id="products-link"   href="products.php">Products</a>
       <a id="orders-link" href="orders.php">Pending Orders</a>
-      <!-- <a id="editblog-link"   href="edit_blog.php">Manage Blog</a> -->
-      <!-- <a id="postform-link"   href="postform.php">Post form test</a> -->
+      <a id="create_product-link"   href="create_products.php">Create Products</a>
+      <a id="create_user-link"   href="register.php">Create Users</a>
     </nav>
   </header>

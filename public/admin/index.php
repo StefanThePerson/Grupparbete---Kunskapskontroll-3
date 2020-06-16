@@ -33,7 +33,7 @@ try {
 		<!-- <article class="border"> -->
 			<h1>Admin Panel - View All Users</h1>
 			<form action="register.php" method="GET">
-				<input type="submit" class="btn btn-dark" name="" value="Create new user">
+				<input type="submit" class="btn btn-dark" name="" value="Create new User">
 			</form>
 			<table id="users_table" class="table">
 				<thead class="thead-dark">
@@ -63,13 +63,13 @@ try {
 								<td>
 								<form action="edit_user.php" method="GET">
 									<input type="hidden" name="id" value="<?=$user['id']?>">
-									<input type="submit" value="Edit">
+									<input type="submit" class="btn btn-dark" value="Edit">
 								</form>
 								</td>
 								<td>
 								<form action="" method="POST">
 									<input type="hidden" name="id" value="<?=$user['id']?>">
-									<input type="submit" name="deleteUserBtn" value="Delete">
+									<input type="submit" name="deleteUserBtn" class="btn btn-dark" value="Delete">
 								</form>
 								</td>
 						</tr>

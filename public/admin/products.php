@@ -12,17 +12,16 @@ if (isset($_POST['deleteProductBtn'])) {
 
 $products = fetchAllProducts();
 
-
-
-
 ?>
 <?php include('layout/header.php'); ?>
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
 <div id="content">
   <?= $errorMsg ?>
   <!-- <article class="border"> -->
-    <h1>Product List</h1>
-    
+  	<h1>Admin Panel - View All Products</h1>
+  	<form action="create_products.php" method="GET">
+  		<input type="submit" class="btn btn-dark" name="" value="Create new Product">
+  	</form>
     <table id="product_table" class="table">
 		<thead class="thead-dark">
 			<tr>
@@ -46,13 +45,13 @@ $products = fetchAllProducts();
 					<td>
 						<form action="edit_product.php" method="GET">
                             <input type="hidden" name="id" value="<?=$product['id']?>">
-							<input type="submit" name="" value="Edit">
+							<input type="submit" name="" class="btn btn-dark" value="Edit">
 						</form>
 					</td>
 					<td>
 						<form action="" method="POST">
 							<input type="hidden" name="id" value="<?=$product['id']?>">
-							<input type="submit" name="deleteProductBtn" value="Delete">
+							<input type="submit" name="deleteProductBtn" class="btn btn-dark" value="Delete">
 						</form>
 					</td>
 				</tr>

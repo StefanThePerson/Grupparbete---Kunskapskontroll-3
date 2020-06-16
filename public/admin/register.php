@@ -93,73 +93,70 @@
   }
 ?>
 <?php include('layout/header.php'); ?>
-    <!-- Sidans/Dokumentets huvudsakliga innehåll -->
-    <div id="content">
-        <article class="border">
+  <!-- Sidans/Dokumentets huvudsakliga innehåll -->
+  <div id="content">
+    <article class="border">
+      <fieldset>
+        <?= $errorMsg ?>
+        <h1>Create new User</h1>
 
-            <form action="#" method="post" accept-charset="utf-8">
-                <fieldset>
-                    <legend>Create a new account</legend>
+        <form action="#" method="post" accept-charset="utf-8">
+          <p>                        
+            <label for="input1">First Name:</label><br>
+            <input type="text" class="text" name="first_name" value="<?=$first_name?>">
+          </p>
 
-                    <?= $errorMsg ?>
+          <p>                        
+            <label for="input1">Last Name:</label><br>
+            <input type="text" class="text" name="last_name" value="<?=$last_name?>">
+          </p>
 
-                    <p>                        
-                        <label for="input1">First Name:</label><br>
-                        <input type="text" class="text" name="first_name" value="<?=$first_name?>">
-                    </p>
+          <p>                        
+            <label for="input1">Email:</label><br>
+            <input type="email" class="text" name="email" value="<?=$email?>">
+          </p>
 
-                    <p>                        
-                        <label for="input1">Last Name:</label><br>
-                        <input type="text" class="text" name="last_name" value="<?=$last_name?>">
-                    </p>
+          <p>                        
+            <label for="input1">Phone Number:</label><br>
+            <input type="tel" class="text" name="phone" value="<?=$phone?>">
+          </p>
 
-                    <p>                        
-                        <label for="input1">Email:</label><br>
-                        <input type="email" class="text" name="email" value="<?=$email?>">
-                    </p>
+          <p>                        
+            <label for="input1">Street:</label><br>
+            <input type="text" class="text" name="street" value="<?=$street?>">
+          </p>
 
-                    <p>                        
-                        <label for="input1">Phone Number:</label><br>
-                        <input type="tel" class="text" name="phone" value="<?=$phone?>">
-                    </p>
+          <p>                        
+            <label for="input1">Postal Code:</label><br>
+            <input type="text" class="text" name="postal_code" value="<?=$postal_code?>">
+          </p>
 
-                    <p>                        
-                        <label for="input1">Street:</label><br>
-                        <input type="text" class="text" name="street" value="<?=$street?>">
-                    </p>
+          <p>                        
+            <label for="input1">City:</label><br>
+            <input type="text" class="text" name="city" value="<?=$city?>">
+          </p>
 
-                    <p>                        
-                        <label for="input1">Postal Code:</label><br>
-                        <input type="text" class="text" name="postal_code" value="<?=$postal_code?>">
-                    </p>
+          <p>                        
+            <label for="input1">Country:</label><br>
+            <input type="text" class="text" name="country" value="<?=$country?>">
+          </p>
+          
+          <p>
+            <label for="input2">Password:</label><br>
+            <input type="password" class="text" name="password">
+          </p>
 
-                    <p>                        
-                        <label for="input1">City:</label><br>
-                        <input type="text" class="text" name="city" value="<?=$city?>">
-                    </p>
+          <p>
+            <label for="input2">Confirm password:</label><br>
+            <input type="password" class="text" name="password2">
+          </p>
 
-                    <p>                        
-                        <label for="input1">Country:</label><br>
-                        <input type="text" class="text" name="country" value="<?=$country?>">
-                    </p>
-                    
-                    <p>
-                        <label for="input2">Password:</label><br>
-                        <input type="password" class="text" name="password">
-                    </p>
-
-                    <p>
-                        <label for="input2">Confirm password:</label><br>
-                        <input type="password" class="text" name="password2">
-                    </p>
-
-                    <p>
-                        <input type="submit" class="btn btn-dark" name="register" value="Create">
-                    </p>
-                </fieldset>
-            </form>
-
-        </article>
-    </div>
+          <p>
+            <input type="submit" class="btn btn-dark" name="register" value="Create">
+          </p>
+        </form>
+      </fieldset>
+    </article>
+  </div>
 
 <?php include('layout/footer.php'); ?>

@@ -57,6 +57,7 @@ try {
 ?>
 <?php include('layout/header.php'); ?>
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
+<div id="content">
 	<!-- <?= $errorMsg ?> -->
 	<h2>Manage Order # <?=$order['id']?></h2>
 	<h3>Customer info</h3>
@@ -89,7 +90,12 @@ try {
 		      <td>$<?=htmlentities($orderItem['unit_price'])?></td>
 		    </tr>
 		<?php } ?>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>Total: <?=$order['total_price']?></td>
+		</tr>
 	  </tbody>
 	</table>
-	<div>Total: <?=$order['total_price']?></div>
+</div>
 <?php include('layout/footer.php'); ?>

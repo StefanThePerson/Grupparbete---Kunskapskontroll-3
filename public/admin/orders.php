@@ -16,7 +16,7 @@ try {
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
 <div id="content">
 	<!-- <?= $errorMsg ?> -->
-	<h1>Manage Orders</h1>
+	<h1>Admin Panel - Manage Orders</h1>
 	<table class="table order-table">
 	  <thead class="thead-dark">
 	    <tr>

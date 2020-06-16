@@ -12,9 +12,9 @@ checkSuccessLogin();
 $pageTitle = 'Admin Page to Edit User';
 $pageId = 'adminUsers';
 //**********
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
 //**********
   $first_name = '';
   $last_name = '';
@@ -108,60 +108,57 @@ $user = fetchUserById($_GET['id']);
 <?php include('layout/header.php'); ?>
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
 <div id="content">
-	<?= $errorMsg ?>
 	<article class="border">
-		<h1>Admin Panel - Update User Info</h1>
+    <fieldset>
+      <?= $errorMsg ?>
+      <h1>Update User Info</h1>
+
+  		<form action="" method="POST">
+  			<p>
+  				<div>firstname</div>
+  				<input type="text" name="first_name" class="text" value="<?=htmlentities($user['first_name'])?>">
+  			</p>
+  			<p>
+  				<div>lastname</div>
+  				<input type="text" name="last_name" class="text" value="<?=htmlentities($user['last_name'])?>">
+  			</p>
+  			<p>
+  				<div>email</div>
+  				<input type="text" name="email" class="text" value="<?=htmlentities($user['email'])?>">
+  			</p>
+  			<!--<p>
+  				<div>re-enter password</div>
+  				<input type="text" name="password2" class="text" value="">
+  			</p>-->
+  			<p>
+  				<div>phone</div>
+  				<input type="text" name="phone" class="text" value="<?=htmlentities($user['phone'])?>">
+  			</p>
+  			<p>
+  				<div>street</div>
+  				<input type="text" name="street" class="text" value="<?=htmlentities($user['street'])?>">
+  			</p>
+  			<p>
+  				<div>postal code</div>
+  				<input type="text" name="postal_code" class="text" value="<?=htmlentities($user['postal_code'])?>">
+  			</p>	
+  			<p>
+  				<div>city</div>
+  				<input type="text" name="city" class="text" value="<?=htmlentities($user['city'])?>">
+  			</p>
+  			<p>
+  				<div>country</div>
+  				<input type="text" name="country" class="text" value="<?=htmlentities($user['country'])?>">
+  			</p>
+  			<p>
+  				<div>password</div>
+  				<input type="text" name="password" class="text" value="">
+  			</p>
+  			<p>
+  				<input type="submit" name="updateBtn" class="btn btn-dark" value="Update">
+  			</p>
+  		</form>
+    </fieldset>
 	</article>
 </div>
-
-<?php include('layout/footer.php'); ?>
-	<div id="content">
-		<article class="border">
-			<form action="" method="POST">
-				<p>
-					<div>firstname</div>
-					<input type="text" name="first_name" class="text" value="<?=htmlentities($user['first_name'])?>">
-				</p>
-				<p>
-					<div>lastname</div>
-					<input type="text" name="last_name" class="text" value="<?=htmlentities($user['last_name'])?>">
-				</p>
-				<p>
-					<div>email</div>
-					<input type="text" name="email" class="text" value="<?=htmlentities($user['email'])?>">
-				</p>
-				<!--<p>
-					<div>re-enter password</div>
-					<input type="text" name="password2" class="text" value="">
-				</p>-->
-				<p>
-					<div>phone</div>
-					<input type="text" name="phone" class="text" value="<?=htmlentities($user['phone'])?>">
-				</p>
-				<p>
-					<div>street</div>
-					<input type="text" name="street" class="text" value="<?=htmlentities($user['street'])?>">
-				</p>
-				<p>
-					<div>postal code</div>
-					<input type="text" name="postal_code" class="text" value="<?=htmlentities($user['postal_code'])?>">
-				</p>	
-				<p>
-					<div>city</div>
-					<input type="text" name="city" class="text" value="<?=htmlentities($user['city'])?>">
-				</p>
-				<p>
-					<div>country</div>
-					<input type="text" name="country" class="text" value="<?=htmlentities($user['country'])?>">
-				</p>
-				<p>
-					<div>password</div>
-					<input type="text" name="password" class="text" value="">
-				</p>
-				<p>
-					<input type="submit" name="updateBtn" value="Update">
-				</p>
-			</form>
-		</article>
-	</div>
 <?php include('layout/footer.php'); ?>

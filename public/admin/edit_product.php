@@ -97,14 +97,11 @@ $product = fetchProductById($_GET['id']);
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
 <div id="content">
   <article class="border">
-    <!-- <h1>Recent blogs</h1> -->
-
-    <form action="#" method="post" enctype="multipart/form-data" accept-charset="utf-8">
-      <fieldset>
-        <legend>Update blog</legend>
-
-        <?= $errorMsg ?>
-
+    <fieldset>
+      <?= $errorMsg ?>
+      <h1>Update Product</h1>
+      
+      <form action="#" method="post" enctype="multipart/form-data" accept-charset="utf-8">
         <p>                        
           <label for="input1">title:</label><br>
           <input type="text" class="text" name="title" value="<?=htmlentities($product['title'])?>">
@@ -119,23 +116,22 @@ $product = fetchProductById($_GET['id']);
           <label for="input1">description:</label><br>
           <textarea name="description"><?=htmlentities($product['description'])?></textarea>
         </p>
-        
+
         <p>
           <label for="input1">product image:</label><br>
           <img src="<?=htmlentities($product['img_url'])?>">
         </p>
 
         <p>
-	    	file: <input type="file" name="uploadedFile" value="<?=$product['img_url']?>"/>
-	    </p>
+          file: <input type="file" name="uploadedFile" value="<?=$product['img_url']?>"/>
+        </p>
 
         <p>
           <input type="submit" class="btn btn-dark" name="updateProductBtn" value="Update"> |
           <a href="products.php" class="btn btn-dark">Go Back</a>
         </p>
-      </fieldset>
-    </form>
-
+      </form>
+    </fieldset>
   </article>
 </div>
 

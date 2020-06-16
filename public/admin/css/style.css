@@ -6,9 +6,9 @@
 
 */
 @import url(forms.css);
+@import url(admin_page.css);
+@import url(products_page.css);
 @import url(profile.css);
-@import url(shopping_cart.css);
-@import url(products.css);
 
 /* general
 -------------------------------------------------------- 
@@ -25,7 +25,7 @@ body{font-family: 'Roboto', sans-serif;color:#333;}
 
 
 h1{text-transform:uppercase;} /* Transform all letter to uppercase. */
-h1,h2{border-bottom:1px solid #dddddd;} /* Put border below header h1 and h2 */
+h1,h2{padding-top:20px;border-bottom:1px solid #dddddd;} /* Put border below header h1 and h2 */
 
 img {border:0;margin-bottom:0px;} /* No border around linked images */
 
@@ -53,7 +53,7 @@ div#content,
 footer#bottom{margin:0 auto;width:100%;}
 
 /* add common padding to main content block */
-div#content{padding:1em 0 1em 0;width:100%;}
+div#content{padding:1em;width:100%;}
 
 /* add padding and background to the footer block */
 div#footer{padding-bottom:20px;background:#E6E6E6;}
