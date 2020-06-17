@@ -4,8 +4,6 @@ if (!isset($_SESSION['cartItems'])) {
   $_SESSION['cartItems'] = [];
 }
 
-// consoleLog($_SESSION['cartItems'], false);
-
 $cartTotalSum = 0;
 $cartItemCount = count($_SESSION['cartItems']);
 $user = fetchUserById($_SESSION['id']);
@@ -74,7 +72,7 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
   <header id="top">
 
     <!-- Main navigation menu -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <a class="navbar-brand" href="index.php">
         <img src="https://i.redd.it/dyu0ryd8v2c41.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
         Crunch 'n Cuties
@@ -89,7 +87,6 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
             <a id="home-link" href="index.php">Home</a>
           </li>
         </ul>
-        <!-- <a id="home-link" href="index.php">Home</a> -->
 
         <!-- search bar -->
         <form class="form-inline searchbar" autocomplete="off">

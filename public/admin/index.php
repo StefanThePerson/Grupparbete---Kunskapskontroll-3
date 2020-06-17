@@ -4,13 +4,12 @@
 require('../../src/config.php');
 require(SRC_PATH . 'dbconnect.php');
 
-$pageTitle = 'Admin Page';
-$pageId = 'admin';
+$pageTitle = 'Admin Page for Users';
+$pageId = 'adminUsers';
+
 
 checkSuccessLogin();
 
-$pageTitle = 'Admin Page for Users';
-$pageId = 'adminUsers';
 
 // Kollar om Delete kanppen har aktiverats
 if (isset($_POST['deleteUserBtn'])) {

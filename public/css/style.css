@@ -90,6 +90,7 @@ header#top h1 {
 */
 #search-input {
   flex-basis: 30rem;
+  margin-left: .5rem!important;
 }
 
 nav.navmenu {
