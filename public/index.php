@@ -28,7 +28,7 @@ $products = fetchAllProducts();
 					<form action="add_cart_item.php" method="POST">
 						<div class="input-group mb-3">
 							<input type="hidden" name="itemId" value="<?=$product['id']?>">
-							<input type="number" name="amount" class="form-control" id="addCartAmount" value="1" min="0">
+							<input type="number" name="amount" class="form-control" id="addCartAmount" value="1" min="0" max="100">
 							<div class="input-group-append">
 								<input type="submit" name="addToCart" class="btn btn-outline-secondary" value="Add to Cart">
 							</div>

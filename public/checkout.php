@@ -117,7 +117,7 @@ if (isset($_POST['register'])) {
 		      <td>
 		      	<form class="update-cart-form" action="update-cart-item.php" method="post">
 		      		<input type="hidden" name="cartId" value="<?=$cartId?>">
-		      		<input type="number" name="amount" value="<?=htmlentities($cart['amount'])?>" min="1">
+		      		<input type="number" name="amount" value="<?=htmlentities($cart['amount'])?>" min="1" max="100">
 		      	</form>
 		      </td>
 		      <td>$<?=htmlentities($cart['price'])?></td>
