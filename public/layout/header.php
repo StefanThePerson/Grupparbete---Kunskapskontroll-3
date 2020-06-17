@@ -72,12 +72,12 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
 
   <!-- Header with logo and main navigation -->
   <header id="top">
-
+    <div class="logoTop"></div>
+    <!--<img id="logoImg" src="img/cnm_logo4.png" width="100%">-->
     <!-- Main navigation menu -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="index.php">
-        <img src="https://i.redd.it/dyu0ryd8v2c41.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-        Crunch 'n Cuties
+        <img src="img/cnm_logotype2.png" width="30" height="30" class="d-inline-block align-top" alt="">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
