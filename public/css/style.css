@@ -83,12 +83,17 @@ header#top h1 {
   border-bottom:1px solid #fff;
   text-transform:none;
 }
+#top {
+  background-color: white;
+}
 .logoTop {
   background-attachment: fixed;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
-  background-size: cover;
   background-image: url(../img/cnm_logo4.png);
+  height: 20rem;
+  width: 100%;
+  background-size: 90% 27rem;
 }
 /* navigation menu
 -------------------------------------------------------- 

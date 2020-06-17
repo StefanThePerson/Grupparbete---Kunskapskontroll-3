@@ -35,7 +35,7 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
 <body id="<?php echo $pageId ?>">
 
   <!-- Above header -->
-  <header id="above">
+  <header id="above" class="sticky-top navbar-white bg-white">
     <nav class="login">
       <?php 
         if (isset($_SESSION['first_name'])) {
