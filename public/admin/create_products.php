@@ -105,25 +105,27 @@ if (isset($_POST['createProduct'])) {
       <?= $errorMsg ?>
 		  <h1>Create new Product</h1>
       
+      <figure class="right top">
+          <figcaption>
+            <p>Product Image</p>
+          </figcaption>
+          <img src="<?=$img_url?>" width="400;">
+      </figure>
+
       <form action="#" method="post" enctype="multipart/form-data" accept-charset="utf-8">
         <p>                        
           <label for="input1">Title:</label><br>
-          <input type="text" class="text" name="title" value="<?=$title?>">
+          <input type="text" class="form-control col-sm-4" class="text" name="title" value="<?=$title?>">
         </p>
 
         <p>                        
           <label for="input1">Price:</label><br>
-          <input type="text" class="text" name="price" value="<?=$price?>">
+          <input type="text" class="form-control col-sm-4" class="text" name="price" value="<?=$price?>">
         </p>
 
         <p>
           <label for="input1">Description:</label><br>
-          <textarea name="description"><?=$description?></textarea>
-        </p>
-
-        <p>
-          <label for="input1">product image:</label><br>
-          <img src="<?=$img_url?>">
+          <textarea class="form-control col-sm-4" rows="6" name="description"><?=$description?></textarea>
         </p>
 
         <p>

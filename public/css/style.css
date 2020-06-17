@@ -83,6 +83,13 @@ header#top h1 {
   border-bottom:1px solid #fff;
   text-transform:none;
 }
+.logoTop {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../img/cnm_logo4.png);
+}
 /* navigation menu
 -------------------------------------------------------- 
   navmenu, related & login
