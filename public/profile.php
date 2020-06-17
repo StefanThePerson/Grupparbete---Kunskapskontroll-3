@@ -17,7 +17,7 @@
         <h1>My Profile</h1>
 
         <figure class="right top">
-          <img src="img/dummy-profile.png" width=130>
+          <img src="img/dummy-profile.png" width=300>
           <figcaption>
             <!-- <p>Exempel på bild med text</p> -->
           </figcaption>
