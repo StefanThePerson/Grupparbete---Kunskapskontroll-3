@@ -116,43 +116,39 @@ $user = fetchUserById($_GET['id']);
   		<form action="" method="POST">
   			<p>
   				<div>firstname</div>
-  				<input type="text" name="first_name" class="text" value="<?=htmlentities($user['first_name'])?>">
+  				<input type="text" name="first_name" class="form-control col-sm-4" value="<?=htmlentities($user['first_name'])?>">
   			</p>
   			<p>
   				<div>lastname</div>
-  				<input type="text" name="last_name" class="text" value="<?=htmlentities($user['last_name'])?>">
+  				<input type="text" name="last_name" class="form-control col-sm-4" value="<?=htmlentities($user['last_name'])?>">
   			</p>
   			<p>
   				<div>email</div>
-  				<input type="text" name="email" class="text" value="<?=htmlentities($user['email'])?>">
+  				<input type="text" name="email" class="form-control col-sm-4" value="<?=htmlentities($user['email'])?>">
   			</p>
-  			<!--<p>
-  				<div>re-enter password</div>
-  				<input type="text" name="password2" class="text" value="">
-  			</p>-->
   			<p>
   				<div>phone</div>
-  				<input type="text" name="phone" class="text" value="<?=htmlentities($user['phone'])?>">
+  				<input type="text" name="phone" class="form-control col-sm-4" value="<?=htmlentities($user['phone'])?>">
   			</p>
   			<p>
   				<div>street</div>
-  				<input type="text" name="street" class="text" value="<?=htmlentities($user['street'])?>">
+  				<input type="text" name="street" class="form-control col-sm-4" value="<?=htmlentities($user['street'])?>">
   			</p>
   			<p>
   				<div>postal code</div>
-  				<input type="text" name="postal_code" class="text" value="<?=htmlentities($user['postal_code'])?>">
+  				<input type="text" name="postal_code" class="form-control col-sm-4" value="<?=htmlentities($user['postal_code'])?>">
   			</p>	
   			<p>
   				<div>city</div>
-  				<input type="text" name="city" class="text" value="<?=htmlentities($user['city'])?>">
+  				<input type="text" name="city" class="form-control col-sm-4" value="<?=htmlentities($user['city'])?>">
   			</p>
   			<p>
   				<div>country</div>
-  				<input type="text" name="country" class="text" value="<?=htmlentities($user['country'])?>">
+  				<input type="text" name="country" class="form-control col-sm-4" value="<?=htmlentities($user['country'])?>">
   			</p>
   			<p>
   				<div>password</div>
-  				<input type="text" name="password" class="text" value="">
+  				<input type="text" name="password" class="form-control col-sm-4" value="">
   			</p>
   			<p>
   				<input type="submit" name="updateBtn" class="btn btn-dark" value="Update">

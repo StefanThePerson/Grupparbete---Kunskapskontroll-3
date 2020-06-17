@@ -100,26 +100,28 @@ $product = fetchProductById($_GET['id']);
     <fieldset>
       <?= $errorMsg ?>
       <h1>Update Product</h1>
+
+      <figure class="right top">
+          <figcaption>
+            <p>Product Image</p>
+          </figcaption>
+          <img src="<?=htmlentities($product['img_url'])?>" width="400;">
+      </figure>
       
       <form action="#" method="post" enctype="multipart/form-data" accept-charset="utf-8">
         <p>                        
           <label for="input1">title:</label><br>
-          <input type="text" class="text" name="title" value="<?=htmlentities($product['title'])?>">
+          <input type="text" class="form-control col-sm-4" name="title" value="<?=htmlentities($product['title'])?>">
         </p>
 
         <p>                        
           <label for="input1">price:</label><br>
-          <input type="text" class="text" name="price" value="<?=htmlentities($product['price'])?>">
+          <input type="text" class="form-control col-sm-4" name="price" value="<?=htmlentities($product['price'])?>">
         </p>
 
         <p>
           <label for="input1">description:</label><br>
-          <textarea name="description"><?=htmlentities($product['description'])?></textarea>
-        </p>
-
-        <p>
-          <label for="input1">product image:</label><br>
-          <img src="<?=htmlentities($product['img_url'])?>">
+          <textarea name="description" class="form-control col-sm-4" rows="6"><?=htmlentities($product['description'])?></textarea>
         </p>
 
         <p>
