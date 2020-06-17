@@ -1,10 +1,10 @@
-
+// ---------------update product amount in checkout page------------------------
 $('.update-cart-form input[name="amount"]').on('change', function() {
 	$(this).parent().submit();
 });
 
 
-
+// ------------------------search function--------------------------------------
 $(document).ready(function() {
 
 	$('#search-input').on('keyup', function() {
@@ -25,10 +25,6 @@ $(document).ready(function() {
 			},
 		});
 	}
-
-	// Run the function getPunlist, on new pageload
-	// window.load = getPunlist('');
-
 
 
 	function appendPunList(data) {
@@ -54,3 +50,30 @@ $(document).ready(function() {
 		$('#product-list').html(html);
 	}
 });	
+
+
+
+
+// ------------------------------image upload------------------------------
+$(document).ready(function() {
+	
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.profile-pic').attr('src', e.target.result);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+   
+    $(".file-upload").on('change', function(){
+        readURL(this);
+    });
+    
+    $(".upload-button").on('click', function() {
+       $(".file-upload").click();
+    });
+});

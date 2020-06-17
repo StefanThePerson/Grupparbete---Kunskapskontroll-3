@@ -100,15 +100,19 @@ $product = fetchProductById($_GET['id']);
     <fieldset>
       <?= $errorMsg ?>
       <h1>Update Product</h1>
-
-      <figure class="right top">
-          <figcaption>
-            <p>Product Image</p>
-          </figcaption>
-          <img src="<?=htmlentities($product['img_url'])?>" width="400;">
-      </figure>
       
-      <form action="#" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+      <form action="" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+
+        <figure class="right top">
+          <div class="avatar-wrapper">
+            <img class="profile-pic" src="<?=htmlentities($product['img_url'])?>" />
+            <div class="upload-button">
+              <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+            </div>
+            <input type="file" class="file-upload" name="uploadedFile" value=""/>
+          </div>
+        </figure>
+
         <p>                        
           <label for="input1">title:</label><br>
           <input type="text" class="form-control col-sm-4" name="title" value="<?=htmlentities($product['title'])?>">
@@ -122,10 +126,6 @@ $product = fetchProductById($_GET['id']);
         <p>
           <label for="input1">description:</label><br>
           <textarea name="description" class="form-control col-sm-4" rows="6"><?=htmlentities($product['description'])?></textarea>
-        </p>
-
-        <p>
-          file: <input type="file" name="uploadedFile" value="<?=$product['img_url']?>"/>
         </p>
 
         <p>
