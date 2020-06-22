@@ -16,8 +16,8 @@
       <fieldset>
         <h1>My Profile</h1>
 
-        <figure class="right top">
-          <img src="img/dummy-profile.png" width=300>
+        <figure class="right top rounded-circle">
+          <img src="img/dummy-profile.png" class="rounded-circle" width="300" />
           <figcaption>
             <!-- <p>Exempel på bild med text</p> -->
           </figcaption>

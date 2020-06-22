@@ -4,7 +4,7 @@
 require('../../src/config.php');
 require(SRC_PATH . 'dbconnect.php');
 
-$pageTitle = 'Admin Page for Users';
+$pageTitle = 'Admin - All Users';
 $pageId = 'adminUsers';
 
 

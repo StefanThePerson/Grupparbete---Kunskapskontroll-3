@@ -3,8 +3,8 @@
 //Ger även error om filen inte kan hittas
 require('../../src/config.php');
 require(SRC_PATH . 'dbconnect.php');
-$pageTitle = 'products';
-$pageId = 'products';
+$pageTitle = 'Admin - All Products';
+$pageId = 'adminproducts';
 
 if (isset($_POST['deleteProductBtn'])) {
     deleteProductById($_POST['id']);

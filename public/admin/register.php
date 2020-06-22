@@ -1,8 +1,8 @@
 <?php
   require('../../src/config.php');
   require(SRC_PATH . 'dbconnect.php');
-  $pageTitle = 'Register';
-  $pageId = '';
+  $pageTitle = 'Admin - Create User';
+  $pageId = 'admincreateUser';
 
 
 

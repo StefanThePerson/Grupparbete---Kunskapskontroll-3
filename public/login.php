@@ -42,12 +42,12 @@
                     <?= $errorMsg ?>
                     <p>                        
                         <label for="input1">Email:</label><br>
-                        <input type="text" class="text" name="email">
+                        <input type="text" class="form-control col-sm-4" name="email">
                     </p>
                     
                     <p>
                         <label for="input2">Password:</label><br>
-                        <input type="password" class="text" name="password">
+                        <input type="password" class="form-control col-sm-4" name="password">
                     </p>
 
                     <p>

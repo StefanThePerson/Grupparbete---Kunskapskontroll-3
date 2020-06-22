@@ -1,8 +1,8 @@
 <?php
 require('../../src/config.php');
 require(SRC_PATH . 'dbconnect.php');
-$pageTitle = 'Admin Page';
-$pageId = 'admin';
+$pageTitle = 'Admin - Create Product';
+$pageId = 'admincreateProduct';
 
 // checkSuccessLogin();
 
@@ -104,14 +104,6 @@ if (isset($_POST['createProduct'])) {
     <fieldset>
       <?= $errorMsg ?>
 		  <h1>Create new Product</h1>
-      
-      <!-- <figure class="right top">
-          <figcaption>
-            <p>Product Image</p>
-          </figcaption>
-          <img src="<?=$img_url?>" width="400;">
-      </figure> -->
-      
 
       <form action="" method="post" enctype="multipart/form-data" accept-charset="utf-8">
 
@@ -127,12 +119,12 @@ if (isset($_POST['createProduct'])) {
 
         <p>                        
           <label for="input1">Title:</label><br>
-          <input type="text" class="form-control col-sm-4" class="text" name="title" value="<?=$title?>">
+          <input type="text" class="form-control col-sm-4" name="title" value="<?=$title?>">
         </p>
 
         <p>                        
           <label for="input1">Price:</label><br>
-          <input type="text" class="form-control col-sm-4" class="text" name="price" value="<?=$price?>">
+          <input type="text" class="form-control col-sm-4" name="price" value="<?=$price?>">
         </p>
 
         <p>

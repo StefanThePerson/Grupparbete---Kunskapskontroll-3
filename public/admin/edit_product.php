@@ -103,7 +103,7 @@ $product = fetchProductById($_GET['id']);
       
       <form action="" method="post" enctype="multipart/form-data" accept-charset="utf-8">
 
-        <figure class="right top">
+        <figure class="right top" title="Upload Product Image">
           <div class="avatar-wrapper">
             <img class="profile-pic" src="<?=htmlentities($product['img_url'])?>" />
             <div class="upload-button">

@@ -1,7 +1,9 @@
+
 // ---------------update product amount in checkout page------------------------
 $('.update-cart-form input[name="amount"]').on('change', function() {
 	$(this).parent().submit();
 });
+
 
 
 // ------------------------search function--------------------------------------
@@ -53,13 +55,12 @@ $(document).ready(function() {
 
 
 
-
-// ------------------------------image upload------------------------------
+// ------------------------------image upload---------------------------------
 $(document).ready(function() {
 	
-    var readURL = function(input) {
+    let readURL = function(input) {
         if (input.files && input.files[0]) {
-            var reader = new FileReader();
+            let reader = new FileReader();
 
             reader.onload = function (e) {
                 $('.profile-pic').attr('src', e.target.result);
@@ -69,11 +70,23 @@ $(document).ready(function() {
         }
     }
    
-    $(".file-upload").on('change', function(){
+    $('.file-upload').on('change', function(){
         readURL(this);
     });
     
-    $(".upload-button").on('click', function() {
-       $(".file-upload").click();
+    $('.upload-button').on('click', function() {
+       $('.file-upload').click();
     });
+});
+
+
+
+// ---------------add box shadow to above header on page scroll---------------
+$(window).scroll(function() {
+	let height = $(window).scrollTop();
+	if(height  > 50) {
+		$('.sticky-top').css({'box-shadow': '0 4px 8px 0 rgba(0, 0, 0, 0.5)'});
+	} else{
+		$('.sticky-top').css({'box-shadow': 'none'});
+	}
 });

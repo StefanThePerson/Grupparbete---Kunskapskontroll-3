@@ -63,7 +63,7 @@
 
     <!-- Main navigation menu -->
     <nav class="navbar navbar-dark bg-dark admin-navbar">
-      <a id="home-link"     href="index.php">Home</a>
+      <a id="home-link"     href="index.php">Users</a>
       <a id="products-link"   href="products.php">Products</a>
       <a id="orders-link" href="orders.php">Pending Orders</a>
       <a id="create_product-link"   href="create_products.php">Create Products</a>
