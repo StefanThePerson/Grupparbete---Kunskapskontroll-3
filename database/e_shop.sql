@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: localhost
--- Tid vid skapande: 04 jun 2020 kl 13:39
+-- Tid vid skapande: 22 jun 2020 kl 15:22
 -- Serverversion: 8.0.18
 -- PHP-version: 7.3.11
 
@@ -64,10 +64,10 @@ CREATE TABLE `order_items` (
 
 CREATE TABLE `products` (
   `id` int(9) NOT NULL,
-  `title` varchar(90) COLLATE utf8mb4_bin NOT NULL,
-  `description` text COLLATE utf8mb4_bin NOT NULL,
+  `title` varchar(90) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `price` int(9) NOT NULL,
-  `img_url` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL
+  `img_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -75,10 +75,20 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `description`, `price`, `img_url`) VALUES
-(1, 'Elephant', 'An elephant in 1:1 scale!', 250, '../admin/img/penguin.jpg'),
-(2, 'Penguin', 'Penguin', 150, 'img/penguin.jpg'),
-(3, 'Elephant', 'Mini Elephant', 100, 'img/elephant.jpg'),
-(4, 'Dolphin', 'An intelligent fish.', 200, 'img/penguin.jpg');
+(6, 'Crispy Bacon & Sourcream', 'Crispy potato chips that have been flavoured with seasoning of bacon and sourcream.', 29, 'img/crispybacon&sourcream.png'),
+(7, 'Dill & Chives', 'These fluted potato chips have been seasoned with dill and chives to make that pleasant earth taste just that much more intense.', 29, 'img/dill&graslok.jpg'),
+(8, 'Grill', 'Perfect for a BBQ, these potato chips just scream of the grilled meats and vegetables of summer.', 29, '../admin/img/grill.jpg'),
+(9, 'Barbecue', 'I mean, c\'mon, it\'s potato chips that taste of BBQ.', 29, 'img/laysbbq.jpg'),
+(10, 'Lentilchips Sourcream & Onion', 'These altenative chips are made of lentils and have been flavoured with sourcream & onion.', 29, 'img/linschips.jpg'),
+(11, 'Popcorn', 'Roasted kernels of corn made into fluffy and crunchy snacks.', 29, 'img/popcorn.png'),
+(12, 'Ranch', 'Fluted potato chips with an array of seasonings that have been voted for by the swedish people.', 29, 'img/ranch.jpg'),
+(13, 'Sourcream & Onion', 'Slightly fluted potato chips with an intense flavour of sourcream and onion that just works.', 29, 'img/sourcream.jpg'),
+(14, 'Kexchoklad', 'Stacked wafers with chocolate between each one and then covered with a layer of chocolate.', 14, 'img/kexchoklad.jpg'),
+(15, 'Bubbly Milk Chocolate', 'A bar of milk chocolate with bubbles inside.', 14, 'img/marabou-bubblig-mj_lkchoklad-60g.jpg'),
+(16, 'Apple', 'An apple a day keeps the doctor away.', 4, 'img/apple.png'),
+(17, 'Banana', 'Perfect addition to an ice cream sundae.', 4, 'img/banana.jpg'),
+(18, 'Orange', 'Nothing witty about these, they\'re just named after their colour. Or was it the other way around?', 4, 'img/orange.jpg'),
+(19, 'Penguin', 'I mean, you would if you could right?', 100, 'img/penguin.jpg');
 
 -- --------------------------------------------------------
 
@@ -99,16 +109,6 @@ CREATE TABLE `users` (
   `country` varchar(90) COLLATE utf8mb4_bin NOT NULL,
   `register_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
-
---
--- Dumpning av Data i tabell `users`
---
-
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `phone`, `street`, `postal_code`, `city`, `country`, `register_date`) VALUES
-(1, 'johnny', 'doe', 'johndoe@fakemail.notreal', '$2y$10$YI6c5i6LeNIXJn3vZGpx7OvPbS3A4H/uxZQABZaPbR9X9pr7fBJ5u', '123456789', 'notrealstreet 42', '12345', 'fakeville', 'madeupsia', '2020-05-22 09:57:31'),
-(2, 'john', 'doe', 'johndoe@fakemail.notreal', 'badpassword', '123456789', 'notrealstreet 42', '12345', 'fakeville', 'madeupsia', '2020-05-22 10:58:57'),
-(10, 'sbgfsgb', 'bsdbtd', 'bsfdntfb@vbdrfh.com', '$2y$10$siqhYfJnle4x2sqj53w..ePX7v7WTAM8ScsF8fusfALa/uhXuhARu', 'bfsbsgb', 'bsfnbf', 'b sfnfsbn', 'nbsfg n', 'gfxn fbn', '2020-05-27 12:37:14'),
-(11, 'bvfdzzb', 'badz', 'bdzfbdz@rs.com', '$2y$10$ffHOMaqvOu5HedvQOt7mT.K43Gm8xuYsP7/ZM3Ew/SpaPnnl0rO7C', 'fzdb fdb dzf', 'zdfbz', 'bzgd ngfzn', 'ngznng', 'b zddgzngdnz', '2020-05-27 12:48:29');
 
 --
 -- Index för dumpade tabeller
@@ -146,25 +146,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT för tabell `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT för tabell `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT för tabell `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT för tabell `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
