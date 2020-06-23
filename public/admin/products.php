@@ -38,7 +38,7 @@ $products = fetchAllProducts();
 			<?php foreach ($products as $key => $product) { ?>
 				<tr>
 					<td><?=htmlentities($product['title'])?></td>
-					<td><?=htmlentities($product['price'])?></td>
+					<td>$<?=htmlentities($product['price'])?></td>
 					<td><?=htmlentities($product['description'])?></td>
 					<td><?=htmlentities($product['img_url'])?></td>
 					<td><img src="<?=htmlentities($product['img_url'])?>"></td>

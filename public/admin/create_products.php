@@ -78,11 +78,12 @@ if (isset($_POST['createProduct'])) {
   // db connection
   
   if (empty($errorMsg)) {
+    $img_url = $newPathAndName;
     $productData = [
       'title'       => $title,
       'price'       => $price,
       'description' => $description,
-      'img_url'     => $img_url = $newPathAndName,
+      'img_url'     => $img_url,
     ];
     
     $result = createProduct($productData);

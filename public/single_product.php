@@ -37,7 +37,7 @@ $product = fetchProductById($_GET['id']);
 		<div class="product-container">
 
 			<div>
-				<h3 class="product-header">Product name: </h3>
+				<h3 class="product-header">Product: </h3>
 				<h3 class="product-text" name="title"><?=htmlentities($product['title'])?></h3>
 			</div>
 
@@ -49,7 +49,7 @@ $product = fetchProductById($_GET['id']);
 			<div>
 				<br>
 				<br>
-				<h3 class="product-header">Product description: </h3>
+				<h3 class="product-header">description: </h3>
 				<br>
 				<br>
 				<h3 class="product-description" name="description"><?=htmlentities($product['description'])?></h3>

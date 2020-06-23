@@ -131,7 +131,8 @@
       $result = updateUser($userData);
 
       if ($result) {
-        $errorMsg = '<div class="success_msg">You successfully updated the profile.</div>';
+        $errorMsg = '<div class="success_msg">You successfully updated the profile.
+        <a href="profile.php?id=' . $user["id"] .'" class="btn btn-outline-success">Go to Profile</a></div>';
       } else {
         $errorMsg = '<div class="success_msg">Something went wrong, failed to update profile.</div>';
       }
