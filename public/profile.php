@@ -15,7 +15,7 @@
     <article class="border">
       <fieldset>
         <h1>My Profile</h1>
-
+        
         <figure class="right top rounded-circle">
           <div class="avatar-wrapper view-profile rounded-circle">
             <img class="profile-pic" src="<?=htmlentities($user['img_url'])?>" />
