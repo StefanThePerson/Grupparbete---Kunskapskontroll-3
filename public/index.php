@@ -1,7 +1,7 @@
 <?php
 require('../src/config.php');
 require(SRC_PATH . 'dbconnect.php');
-$pageTitle = 'Home';
+$pageTitle = 'Home - Crunch n Munch';
 $pageId = 'home';
 
 checkSuccessLogin();
@@ -21,7 +21,7 @@ $products = fetchAllProducts();
 					<h5 class="card-title"><?=htmlentities($product['title'])?></h5>
 					<p class="card-text">$<?=htmlentities($product['price'])?></p>
 
-					<form action="single_product.php" method="get">
+					<form action="single_product.php" method="get" style="padding-bottom:10px;">
 						<input type="hidden" name="id" value="<?=$product['id']?>">
 						<input type="submit" class="btn btn-dark" value="Product Details">
 					</form>

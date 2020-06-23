@@ -38,7 +38,7 @@ if (isset($_POST['updateProductBtn'])) {
 		//this is the temporary name of the file
 		$fileTempName = $_FILES['uploadedFile']['tmp_name'];
 		//this is the path where you want to save the actual file
-		$path = "../admin/img/";
+		$path = "img/";
 		//this is the actual path and actual name of the file
     $newPathAndName = $path . $fileName;
     // echo "uploaded to {$newPathAndName};";
@@ -53,15 +53,15 @@ if (isset($_POST['updateProductBtn'])) {
     
     $isFileTypeAllowed = (bool) array_search($fileType, $allowedFileTypes, true);
     if ($isFileTypeAllowed == false) {
-      $errorMsg = '<div class="error_msg">The file type is invalid. Allowed types are jpg, jpeg, png, gif.</div><br>';
+      $errorMsg = '<div class="error_msg">The file type is invalid. Allowed types are jpg, jpeg, png, gif.</div>';
     } else {
-        // Will try to upload the file with the function 'move_uploaded_file'
-        // Returns true/false depending if it was successful or not
-        $isTheFileUploaded = move_uploaded_file($fileTempName, $newPathAndName);
-        if ($isTheFileUploaded == false) {
-            // Otherwise, if upload unsuccessful, show errormessage
-            $errorMsg = '<div class="error_msg">Could not upload the file. Please try again</div><br>';
-        }
+      // Will try to upload the file with the function 'move_uploaded_file'
+      // Returns true/false depending if it was successful or not
+      $isTheFileUploaded = move_uploaded_file($fileTempName, $newPathAndName);
+      if ($isTheFileUploaded == false) {
+        // Otherwise, if upload unsuccessful, show errormessage
+        $errorMsg = '<div class="error_msg">Could not upload the file. Please try again</div>';
+      }
     }
   }
 
@@ -79,7 +79,7 @@ if (isset($_POST['updateProductBtn'])) {
         'id'            => $_GET['id'],
     ];
       
-      $result = updateProduct($productData); 
+    $result = updateProduct($productData); 
 
     if ($result) {
       $errorMsg = '<div class="success_msg">You successfully updated the product.

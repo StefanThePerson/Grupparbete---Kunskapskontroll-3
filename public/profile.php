@@ -17,10 +17,9 @@
         <h1>My Profile</h1>
 
         <figure class="right top rounded-circle">
-          <img src="img/dummy-profile.png" class="rounded-circle" width="300" />
-          <figcaption>
-            <!-- <p>Exempel på bild med text</p> -->
-          </figcaption>
+          <div class="avatar-wrapper view-profile rounded-circle">
+            <img class="profile-pic" src="<?=htmlentities($user['img_url'])?>" />
+          </div>
         </figure>
         
         <div class="profile-container">
