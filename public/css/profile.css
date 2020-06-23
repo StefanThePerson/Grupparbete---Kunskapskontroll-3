@@ -45,17 +45,28 @@
 	background: #858585;
 }
 
+.dropdown-menu .top-nav-profile:after {
+	content: url(../img/dummy-profile.png);
+}
+
+
+
 
 
 .avatar-wrapper{
 	position: relative;
-	height: 300px;
-	width: 300px;
+	height: 400px;
+	width: 400px;
 	overflow: hidden;
 	box-shadow: 1px 1px 15px -5px black;
 	transition: all .3s ease;
 	border-radius: 5px;
 }
+.avatar-wrapper.view-profile {
+	height: 300px;
+	width: 300px;
+}
+
 .avatar-wrapper.view-profile:hover {
 	cursor: default !important;
 }
@@ -87,6 +98,10 @@
 	color: #34495e;
 	text-align: center;
 }
+.avatar-wrapper.view-profile .profile-pic:after {
+	left: -51px;
+}
+
 .avatar-wrapper .upload-button {
 	position: absolute;
 	top: 0; left: 0;

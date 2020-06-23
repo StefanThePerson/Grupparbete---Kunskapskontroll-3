@@ -45,7 +45,7 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
                           <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="' . $user["img_url"] . '" width="40" height="40" class="rounded-circle">
+                                <img src="' . $user["img_url"] . '" width="40" height="40" class="rounded-circle top-nav-profile">
                               </a>
 
                               <div class="dropdown-menu profile-dropdown" aria-labelledby="navbarDropdownMenuLink">
