@@ -1,6 +1,6 @@
 <?php
 // Turn on/off error reporting
-error_reporting(-1);
+error_reporting(0);
 
 // Start session
 session_start();

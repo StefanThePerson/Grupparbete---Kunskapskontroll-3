@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: localhost
--- Tid vid skapande: 22 jun 2020 kl 15:22
+-- Tid vid skapande: 23 jun 2020 kl 11:53
 -- Serverversion: 8.0.18
 -- PHP-version: 7.3.11
 
@@ -88,7 +88,14 @@ INSERT INTO `products` (`id`, `title`, `description`, `price`, `img_url`) VALUES
 (16, 'Apple', 'An apple a day keeps the doctor away.', 4, 'img/apple.png'),
 (17, 'Banana', 'Perfect addition to an ice cream sundae.', 4, 'img/banana.jpg'),
 (18, 'Orange', 'Nothing witty about these, they\'re just named after their colour. Or was it the other way around?', 4, 'img/orange.jpg'),
-(19, 'Penguin', 'I mean, you would if you could right?', 100, 'img/penguin.jpg');
+(20, 'Doritos Sourcream', 'Corn chips with sourcream flavouring', 29, 'img/doritos_sourcream_ny.jpg'),
+(21, 'Doritos Nacho Cheese', 'Corn chips with nacho cheese flavouring.', 29, 'img/doritos-nacho-cheese-1.png'),
+(22, 'Doritos Sweet Chili Pepper', 'Corn chips with sweet chili pepper flavouring.', 29, 'img/doritossweetchilipepper.png'),
+(23, 'Doritos Thai Sweet Chili', 'Corn chips with sweet chili flavouring from thailand.', 29, '../admin/img/doritosthaisweetchili.jpg'),
+(24, 'Kitkat', 'Wafers with chocolate.', 14, 'img/kitkat.jpg'),
+(25, 'Marabou Milk Chocolate', 'Simple milk chocolate.', 14, 'img/maraboumjolkchoklad.jpg'),
+(26, 'Marabou Dark Chocolate', 'Simple dark chocolate.', 14, 'img/marabou-morkchoklad.jpg'),
+(27, 'Almonds', 'Nuts, get your nuts here!', 14, 'img/mandlar.png');
 
 -- --------------------------------------------------------
 
@@ -107,8 +114,16 @@ CREATE TABLE `users` (
   `postal_code` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `city` varchar(90) COLLATE utf8mb4_bin NOT NULL,
   `country` varchar(90) COLLATE utf8mb4_bin NOT NULL,
+  `img_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `register_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Dumpning av Data i tabell `users`
+--
+
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `phone`, `street`, `postal_code`, `city`, `country`, `img_url`, `register_date`) VALUES
+(14, 'Michael', 'doe', 'johndoe@fakemail.notreal', '$2y$10$HzALmg83KpA99n8.5sl7ruRILdlqGH6X3CtPWkNU5St/YVj9X2rEG', '123456789', 'Manganvägen 2', '18746', 'Täby', 'Sverige', NULL, '2020-06-23 10:12:11');
 
 --
 -- Index för dumpade tabeller
@@ -158,13 +173,13 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT för tabell `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT för tabell `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
