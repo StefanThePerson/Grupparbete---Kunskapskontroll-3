@@ -46,7 +46,7 @@
 }
 
 .top-nav-profile:before {
-	content: url(../img/dummy-profile.png);
+	content: url(../img/top-nav-dummy.png);
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -67,7 +67,6 @@
 .avatar-wrapper.view-profile {
 	height: 300px;
 	width: 300px;
-	position: absolute;
 }
 
 .avatar-wrapper.view-profile:hover {
