@@ -47,6 +47,7 @@
 
 .top-nav-profile:before {
 	content: url(../img/dummy-profile.png);
+	position: absolute;
 	width: 100%;
 	height: 100%;
 }
