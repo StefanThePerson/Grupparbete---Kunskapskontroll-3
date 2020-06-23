@@ -85,7 +85,7 @@ function updateUser($userData) {
 	try {
 		$query = "
 		UPDATE users
-		SET first_name = :first_name, last_name = :last_name, email = :email, phone = :phone, street = :street, postal_code = :postal_code, city = :city, country = :country, password = :password
+		SET first_name = :first_name, last_name = :last_name, email = :email, phone = :phone, street = :street, postal_code = :postal_code, city = :city, country = :country, img_url = :img_url, password = :password
 		WHERE id = :id;
 		";
 		$stmt = $dbconnect->prepare($query); 
@@ -97,6 +97,7 @@ function updateUser($userData) {
 		$stmt->bindValue(':postal_code', $userData['postal_code']);
 		$stmt->bindValue(':city', $userData['city']);
 		$stmt->bindValue(':country', $userData['country']);
+		$stmt->bindValue(':img_url', $userData['img_url']);
 		$stmt->bindValue(':password', password_hash($userData['password'], PASSWORD_DEFAULT));
 		$stmt->bindValue(':id', $userData['id']);
 		$result = $stmt->execute();

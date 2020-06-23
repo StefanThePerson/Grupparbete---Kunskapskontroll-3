@@ -59,15 +59,15 @@ if (isset($_POST['createProduct'])) {
     
     $isFileTypeAllowed = (bool) array_search($fileType, $allowedFileTypes, true);
     if ($isFileTypeAllowed == false) {
-      $errorMsg = '<div class="error_msg">The file type is invalid. Allowed types are jpg, jpeg, png, gif.</div><br>';
+      $errorMsg = '<div class="error_msg">The file type is invalid. Allowed types are jpg, jpeg, png, gif.</div>';
     } else {
-        // Will try to upload the file with the function 'move_uploaded_file'
-        // Returns true/false depending if it was successful or not
-        $isTheFileUploaded = move_uploaded_file($fileTempName, $newPathAndName);
-        if ($isTheFileUploaded == false) {
-            // Otherwise, if upload unsuccessful, show errormessage
-            $errorMsg = '<div class="error_msg">Could not upload the file. Please try again</div><br>';
-        }
+      // Will try to upload the file with the function 'move_uploaded_file'
+      // Returns true/false depending if it was successful or not
+      $isTheFileUploaded = move_uploaded_file($fileTempName, $newPathAndName);
+      if ($isTheFileUploaded == false) {
+        // Otherwise, if upload unsuccessful, show errormessage
+        $errorMsg = '<div class="error_msg">Could not upload the file. Please try again</div>';
+      }
     }
   }
 
