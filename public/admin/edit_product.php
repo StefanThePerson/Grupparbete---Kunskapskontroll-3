@@ -71,6 +71,9 @@ if (isset($_POST['updateProductBtn'])) {
 
   if (empty($errorMsg)) {
     $img_url = $newPathAndName;
+    $product = fetchProductById($_GET['id']);
+    $img_url = !empty($img_url) ? $img_url : $product['img_url'];
+    
     $productData = [
         'title'         => $title,
         'price'         => $price,

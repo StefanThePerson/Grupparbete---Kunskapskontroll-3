@@ -111,6 +111,9 @@
 
     if (empty($errorMsg)) {
       $img_url = $newPathAndName;
+      $user = fetchUserById($_GET['id']);
+      $img_url = !empty($img_url) ? $img_url : $user['img_url'];
+
       $userData = [
         'first_name'  => $first_name,
         'last_name'   => $last_name,
