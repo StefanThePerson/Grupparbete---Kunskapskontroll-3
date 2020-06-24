@@ -44,3 +44,10 @@
 .dropdown-menu .dropdown-item:hover {
 	background: #858585;
 }
+
+.top-nav-profile:before {
+	content: url(../img/top-nav-dummy.png);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}

@@ -38,7 +38,7 @@ $currentUser = fetchUserById($_SESSION['id']);
                           <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="../img/dummy-profile.png" width="40" height="40" class="rounded-circle top-nav-profile">
+                                <img src="../' . $currentUser["img_url"] . '" width="40" height="40" class="rounded-circle top-nav-profile">
                               </a>
                               <div class="dropdown-menu profile-dropdown" aria-labelledby="navbarDropdownMenuLink">
                                 <form action="../profile.php" method="get">
