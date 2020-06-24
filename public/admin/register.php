@@ -4,7 +4,7 @@
   $pageTitle = 'Admin - Create User';
   $pageId = 'admincreateUser';
 
-
+  checkLoginSession();
 
   $first_name = '';
   $last_name = '';

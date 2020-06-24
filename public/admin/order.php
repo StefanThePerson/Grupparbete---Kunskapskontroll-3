@@ -93,7 +93,7 @@ try {
 		<tr>
 			<td></td>
 			<td></td>
-			<td>Total: <?=$order['total_price']?></td>
+			<td>Total: $<?=$order['total_price']?></td>
 		</tr>
 	  </tbody>
 	</table>

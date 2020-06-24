@@ -5,6 +5,8 @@ require(SRC_PATH . 'dbconnect.php');
 $pageTitle = 'Admin - Manage Orders';
 $pageId = 'admin';
 
+checkLoginSession();
+
 try {
 	$query = " 
 		SELECT * FROM orders

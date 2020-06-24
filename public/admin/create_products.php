@@ -5,6 +5,7 @@ $pageTitle = 'Admin - Create Product';
 $pageId = 'admincreateProduct';
 
 // checkSuccessLogin();
+checkLoginSession();
 
 
 $title = '';
