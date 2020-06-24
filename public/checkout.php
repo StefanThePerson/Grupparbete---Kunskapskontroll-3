@@ -16,7 +16,7 @@ $postal_code = '';
 $city = '';
 $country = '';
 $errorMsg = '';
-if (isset($_POST['register'])) {
+if (isset($_POST['createOrderBtn'])) {
     $first_name = trim($_POST['first_name']);
     $last_name = trim($_POST['last_name']);
     $email = trim($_POST['email']);
@@ -26,7 +26,7 @@ if (isset($_POST['register'])) {
     $city = trim($_POST['city']);
     $country = trim($_POST['country']);
     $password = trim($_POST['password']);
-    $password2 = trim($_POST['password2']);
+    // $password2 = trim($_POST['password2']);
 
     if (empty($first_name)) {
       $errorMsg .= "*You must have a First Name</br>";
@@ -61,9 +61,9 @@ if (isset($_POST['register'])) {
     if (!empty($password) && strlen($password) < 6) {
       $errorMsg .= "*Password must be more than 6 characters</br>";
     }
-    if ($password2 !== $password) {
-      $errorMsg .= "*Confirmed password does not match";
-    }
+    // if ($password2 !== $password) {
+    //   $errorMsg .= "*Confirmed password does not match";
+    // }
 
     if (!empty($errorMsg)) {
       $errorMsg = "<ul class='error_msg'>{$errorMsg}</ul>";
@@ -95,7 +95,7 @@ if (isset($_POST['register'])) {
 <?php include('layout/header.php'); ?>
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
 <div id="content">
-	<!-- <?= $errorMsg ?> -->
+	
 	<h1>Your Shopping Cart</h1>
 	<table class="table checkout-table">
 	  <thead class="thead-dark">
@@ -145,46 +145,47 @@ if (isset($_POST['register'])) {
 
 <!---->
 <h1>Checkout Confirmation</h1>
-<form action="create_order.php" method="POST" id="checkForm">
+<?= $errorMsg ?>
+<form action="create_order.php" method="POST" id="checkForm" class="needs-validation" novalidate>
 	<input type="hidden" name="cartTotalPrice" value="<?=$cartTotalSum?>">
   <div class="form-row">
   	<div class="form-group col-md-6">
       <label for="inputEmail4">First Name</label>
-      <input type="text" class="form-control" name="firstName" id="inputEmail4" placeholder="First name" value="<?=$user['first_name']?>">
+      <input type="text" class="form-control" name="first_name" id="inputEmail4" placeholder="First name" value="<?=$user['first_name']?>" required>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Last Name</label>
-      <input type="text" class="form-control" name="lastName" id="inputPassword4" placeholder="Last name" value="<?=$user['last_name']?>">
+      <input type="text" class="form-control" name="last_name" id="inputPassword4" placeholder="Last name" value="<?=$user['last_name']?>" required>
     </div>
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="text" class="form-control" name="email" id="inputEmail4" placeholder="Email" value="<?=$user['email']?>">
+      <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email" value="<?=$user['email']?>" required>
     </div>
     <?php if (empty($_SESSION['id'])) {  ?>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
-      <input type="text" class="form-control" name="password" id="inputPassword4" placeholder="Password">
+      <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password" required>
     </div>
     <?php } ?>
   </div>
 	<div class="form-row">
 	  <div class="form-group col-md-6">
 	    <label for="inputStreet">Street</label>
-	    <input type="text" class="form-control" name="street" id="inputStreet" placeholder="1234 Main St" value="<?=$user['street']?>">
+	    <input type="text" class="form-control" name="street" id="inputStreet" placeholder="1234 Main St" value="<?=$user['street']?>" required>
 	  </div>
 	  <div class="form-group col-md-6">
 	      <label for="inputZip">Postal Code</label>
-	      <input type="text" class="form-control" name="postalCode" id="inputZip" value="<?=$user['postal_code']?>">
+	      <input type="text" class="form-control" name="postal_code" id="inputZip" value="<?=$user['postal_code']?>" required>
 	    </div>
 	</div>
   <div class="form-row">
   	<div class="form-group col-md-6">
       <label for="inputZip">Phone Number</label>
-      <input type="text" class="form-control" name="phone" value="<?=$user['phone']?>">
+      <input type="text" class="form-control" name="phone" id="inputZip" value="<?=$user['phone']?>" required>
     </div>
     <div class="form-group col-md-3">
       <label for="inputCity">City</label>
-      <input type="text" class="form-control" name="city" id="inputCity" value="<?=$user['city']?>">
+      <input type="text" class="form-control" name="city" id="inputCity" value="<?=$user['city']?>" required>
     </div>
     <div class="form-group col-md-3">
       <label for="inputState">Country</label>
@@ -198,10 +199,13 @@ if (isset($_POST['register'])) {
   </div>
   <div class="form-group">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        I accept the terms and conditions.
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
+        Agree to terms and conditions
       </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
     </div>
   </div>
   <button type="submit" class="btn btn-dark" name="createOrderBtn">Confirm Order</button>
