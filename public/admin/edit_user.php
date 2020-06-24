@@ -4,27 +4,25 @@
 require('../../src/config.php');
 require(SRC_PATH . 'dbconnect.php');
 
-$pageTitle = 'Admin Page';
-$pageId = 'admin';
-
 checkSuccessLogin();
 
-$pageTitle = 'Admin Page to Edit User';
-$pageId = 'adminUsers';
+$pageTitle = 'Admin - Edit User';
+$pageId = 'admineditUsers';
 //**********
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
+
+
 //**********
-  $first_name = '';
-  $last_name = '';
-  $email = '';
-  $phone = '';
-  $street = '';
-  $postal_code = '';
-  $city = '';
-  $country = '';
-  $errorMsg = '';
+$first_name = '';
+$last_name = '';
+$email = '';
+$phone = '';
+$street = '';
+$postal_code = '';
+$city = '';
+$country = '';
+$img_url = '';
+$errorMsg = '';
+$newPathAndName = "";
 // Kollar om Update knappen har aktiverats
 if (isset($_POST['updateBtn'])) {
     $first_name = trim($_POST['first_name']);
@@ -71,15 +69,53 @@ if (isset($_POST['updateBtn'])) {
     if (!empty($password) && strlen($password) < 6) {
       $errorMsg .= "*Password must be more than 6 characters</br>";
     }
-   /* if ($password2 !== $password) {
-      $errorMsg .= "*Password does not match";
-    }*/
+
+
+    // Validation for file upload starts here
+    if(is_uploaded_file($_FILES['uploadedFile']['tmp_name'])) {
+      //this is the actual name of the file
+      $fileName = $_FILES['uploadedFile']['name'];
+      //this is the file type
+      $fileType = $_FILES['uploadedFile']['type'];
+      //this is the temporary name of the file
+      $fileTempName = $_FILES['uploadedFile']['tmp_name'];
+      //this is the path where you want to save the actual file
+      $path = "img/";
+      //this is the actual path and actual name of the file
+      $newPathAndName = $path . $fileName;
+      // echo "uploaded to {$newPathAndName};";
+
+      // DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
+      // Check MIME Type by yourself.
+      $allowedFileTypes = [
+        'jpg' => 'image/jpeg',
+        'png' => 'image/png',
+        'gif' => 'image/gif',
+      ];
+      
+      $isFileTypeAllowed = (bool) array_search($fileType, $allowedFileTypes, true);
+      if ($isFileTypeAllowed == false) {
+        $errorMsg = '<div class="error_msg">The file type is invalid. Allowed types are jpg, jpeg, png, gif.</div>';
+      } else {
+        // Will try to upload the file with the function 'move_uploaded_file'
+        // Returns true/false depending if it was successful or not
+        $isTheFileUploaded = move_uploaded_file($fileTempName, $newPathAndName);
+        if ($isTheFileUploaded == false) {
+          // Otherwise, if upload unsuccessful, show errormessage
+          $errorMsg = '<div class="error_msg">Could not upload the file. Please try again</div>';
+        }
+      }
+    }
 
     if (!empty($errorMsg)) {
       $errorMsg = "<ul class='error_msg'>{$errorMsg}</ul>";
     }
 
     if (empty($errorMsg)) {
+      $img_url = $newPathAndName;
+      $user = fetchUserById($_GET['id']);
+      $img_url = !empty($img_url) ? $img_url : $user['img_url'];
+
       $userData = [
         'first_name'  => $first_name,
         'last_name'   => $last_name,
@@ -89,6 +125,7 @@ if (isset($_POST['updateBtn'])) {
         'postal_code' => $postal_code,
         'city'        => $city,
         'country'     => $country,
+        'img_url'     => $img_url,
         'password'    => $password,
         'id'          => $_GET['id'],
       ];
@@ -96,7 +133,8 @@ if (isset($_POST['updateBtn'])) {
       $result = updateUser($userData);
 
       if ($result) {
-        $errorMsg = '<div class="success_msg">You successfully updated the account.</div>';
+        $errorMsg = '<div class="success_msg">You successfully updated the account.
+        <a href="index.php" class="btn btn-outline-success">Go to Profile</a></div>';
       } else {
         $errorMsg = '<div class="success_msg">Something went wrong, failed to update account.</div>';
       }
@@ -113,7 +151,20 @@ $user = fetchUserById($_GET['id']);
       <?= $errorMsg ?>
       <h1>Update User Info</h1>
 
-  		<form action="" method="POST">
+  		<form action="" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
+
+        
+        <figure class="right top rounded-circle" title="Upload Profile Image">
+          <div class="avatar-wrapper rounded-circle">
+            <img class="profile-pic" src="../<?=htmlentities($user['img_url'])?>" />
+            <div class="upload-button">
+              <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+            </div>
+            <input type="file" class="file-upload" name="uploadedFile" value=""/>
+          </div>
+        </figure>
+
+
   			<p>
   				<div>firstname</div>
   				<input type="text" name="first_name" class="form-control col-sm-4" value="<?=htmlentities($user['first_name'])?>">
@@ -148,7 +199,7 @@ $user = fetchUserById($_GET['id']);
   			</p>
   			<p>
   				<div>password</div>
-  				<input type="text" name="password" class="form-control col-sm-4" value="">
+  				<input type="password" name="password" class="form-control col-sm-4" value="">
   			</p>
   			<p>
   				<input type="submit" name="updateBtn" class="btn btn-dark" value="Update">

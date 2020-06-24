@@ -48,16 +48,9 @@ try {
 				<tbody>
 					<?php foreach ($users as $key => $user) { ?>
 						<tr>
-							<!--<td><?=htmlentities($user['first_name'])?></td>
-							<td><?=htmlentities($user['last_name'])?></td>-->
 							<td><?=htmlentities($user['first_name']) . " " . htmlentities($user['last_name'])?></td>
 							<td><?=htmlentities($user['email'])?></td>
 							<td><?=htmlentities($user['phone'])?></td>
-							<!--<td class="passwordWidth"><?=htmlentities($user['password'])?></td>
-							<td><?=htmlentities($user['street'])?></td>
-							<td><?=htmlentities($user['postal_code'])?></td>
-							<td><?=htmlentities($user['city'])?></td>
-							<td><?=htmlentities($user['country'])?></td>-->
 							<td><?=htmlentities($user['register_date'])?></td>
 								<td>
 								<form action="edit_user.php" method="GET">

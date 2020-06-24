@@ -11,7 +11,7 @@
 #users_table tr,
 #users_table td,
 #users_table th {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   padding: 10px;
 }
 tr td .passwordWidth {
