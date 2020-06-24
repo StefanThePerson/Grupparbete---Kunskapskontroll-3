@@ -11,6 +11,7 @@ $cartItems = $_SESSION['cartItems'];
 ?>
 <?php include('layout/header.php'); ?>
 <!-- Sidans/Dokumentets huvudsakliga innehåll -->
+<div id="content">
 	<!-- <?= $errorMsg ?> -->
 	<h2>Thank you for your purchase!</h2>
 	<p>
@@ -50,6 +51,7 @@ $cartItems = $_SESSION['cartItems'];
 		</tr>
 	  </tbody>
 	</table>
+</div>
 <?php include('layout/footer.php'); ?>
 <?php
 unset($_SESSION['cartItems']);

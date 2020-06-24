@@ -85,9 +85,10 @@
       $result = createUser($userData);
 
       if ($result) {
-        $errorMsg = '<div class="success_msg">You successfully created a new account.</div>';
+        $errorMsg = '<div class="success_msg">You successfully created a new User Account.
+        <a href="index.php" class="btn btn-outline-success">Go To Users</a></div>';
       } else {
-        $errorMsg = '<div class="success_msg">Something went wrong, failed to create account.</div>';
+        $errorMsg = '<div class="success_msg">Something went wrong, failed to create User Account.</div>';
       }
     }
   }

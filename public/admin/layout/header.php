@@ -1,5 +1,6 @@
 <?php
-$user = fetchUserById($_GET['id']);
+// $user = fetchUserById($_GET['id']);
+$currentUser = fetchUserById($_SESSION['id']);
 ?>
 <!DOCTYPE html>
 <html lang="sv"> 
@@ -41,7 +42,7 @@ $user = fetchUserById($_GET['id']);
                               </a>
                               <div class="dropdown-menu profile-dropdown" aria-labelledby="navbarDropdownMenuLink">
                                 <form action="../profile.php" method="get">
-                                  <input type="hidden" name="id" value="' . $user["id"] . '">
+                                  <input type="hidden" name="id" value="' . $currentUser["id"] . '">
                                   <input type="submit" class="dropdown-item" id="my-profil" value="My Profile">
                                 </form>
                                 <a class="dropdown-item" href="logout.php">Log Out</a>

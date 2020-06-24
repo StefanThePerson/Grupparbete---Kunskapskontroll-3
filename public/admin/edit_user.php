@@ -133,10 +133,10 @@ if (isset($_POST['updateBtn'])) {
       $result = updateUser($userData);
 
       if ($result) {
-        $errorMsg = '<div class="success_msg">You successfully updated the account.
-        <a href="index.php" class="btn btn-outline-success">Go to Profile</a></div>';
+        $errorMsg = '<div class="success_msg">You successfully updated the User Account.
+        <a href="index.php" class="btn btn-outline-success">Go to Users</a></div>';
       } else {
-        $errorMsg = '<div class="success_msg">Something went wrong, failed to update account.</div>';
+        $errorMsg = '<div class="success_msg">Something went wrong, failed to update User Account.</div>';
       }
     }
   }
@@ -202,7 +202,8 @@ $user = fetchUserById($_GET['id']);
   				<input type="password" name="password" class="form-control col-sm-4" value="">
   			</p>
   			<p>
-  				<input type="submit" name="updateBtn" class="btn btn-dark" value="Update">
+  				<input type="submit" name="updateBtn" class="btn btn-dark" value="Update"> |
+          <a href="index.php" class="btn btn-dark">Go Back</a>
   			</p>
   		</form>
     </fieldset>
