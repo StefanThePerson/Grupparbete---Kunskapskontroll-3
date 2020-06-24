@@ -9,6 +9,7 @@ $pageId = 'adminUsers';
 
 
 checkSuccessLogin();
+checkLoginSession();
 
 
 // Kollar om Delete kanppen har aktiverats

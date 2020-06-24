@@ -1,5 +1,5 @@
 <?php
-$user = fetchUserById($_SESSION['id']);
+$user = fetchUserById($_GET['id']);
 ?>
 <!DOCTYPE html>
 <html lang="sv"> 
@@ -37,7 +37,7 @@ $user = fetchUserById($_SESSION['id']);
                           <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="../' . $user["img_url"] . '" width="40" height="40" class="rounded-circle top-nav-profile">
+                                <img src="../img/dummy-profile.png" width="40" height="40" class="rounded-circle top-nav-profile">
                               </a>
                               <div class="dropdown-menu profile-dropdown" aria-labelledby="navbarDropdownMenuLink">
                                 <form action="../profile.php" method="get">
@@ -52,7 +52,7 @@ $user = fetchUserById($_SESSION['id']);
 
           $aboveNav = "Welcome $displayUsername  $profileNav";
         } else {
-          $aboveNav = "<a href='register.php'>Register</a> | <a href='login.php'>Log In</a>";
+          $aboveNav = "<a href='login.php'>Log In</a>";
         }
 
         echo $aboveNav;

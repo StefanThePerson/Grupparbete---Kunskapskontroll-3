@@ -6,6 +6,8 @@ require(SRC_PATH . 'dbconnect.php');
 $pageTitle = 'Admin - All Products';
 $pageId = 'adminproducts';
 
+checkLoginSession();
+
 if (isset($_POST['deleteProductBtn'])) {
     deleteProductById($_POST['id']);
   }
